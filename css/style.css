@@ -21,11 +21,11 @@ html, body {
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
 }
 #sidebarMenu {
-    font-size: 14px;
     position: relative;
+    font-size: 14px;
     overflow-y: auto;
     color: rgba(0, 0, 0, 0.0);
-    height: 100%;
+    height: calc(100% - 65px);
     border-radius: 3px;
     transition: color .3s ease;
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
@@ -55,7 +55,7 @@ html, body {
 }
 header {
     position: sticky;
-    min-width: calc(100%+1px);
+    min-width: calc(100% - 250px);
     display: block;
     top: 0px;
     z-index: 10;
@@ -76,34 +76,45 @@ header img {
     z-index: -1000;
 }
 #wrapper {
-    margin: 50px 20px;
+    margin: 30px 20px;
 }
 .page {
     position: relative;
-    max-width: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 20px;
 }
 #search_bar {
+    position: relative;
     margin-left: 15px;
     display: inline-block;
     z-index: 100;
-    width: 450px;
+    width: auto;
     padding: 10px 10px 12px 70px;
-    opacity: 0.3;
     border-radius: 3px;
     border: 0px;
-    transition: opacity .3s ease;
-    background-image: url('../img/searchicon_light.png');  
+    transition: background-color .3s ease;
+    background: rgba(255, 255, 255, 0.5);
+    background-image: url('../img/search-24px.svg');  
+    background-position: 30px 10px; 
+    background-repeat: no-repeat;
+    color: #111;
+}
+#search_bar::placeholder {
+    color: #111;
+}
+#search_bar:hover {
+    background: rgba(255, 255, 255, 0.3);
+    background-image: url('../img/search-24px.svg');  
     background-position: 30px 10px; 
     background-repeat: no-repeat;
 }
-#search_bar:hover {
-    opacity: 0.2;
-}
 #search_bar:active {
-    opacity: 0.2;
+    background: rgba(255, 255, 255, 0.3);
+    background-image: url('../img/search-24px.svg');  
+    background-position: 30px 10px; 
+    background-repeat: no-repeat;
 }
 .box {
     position: relative;
@@ -133,6 +144,9 @@ header img {
     border-bottom: 1px solid rgb(210, 210, 210);
 }
 #notifications_icon {
+    top: 10px;
+    right: 15px;
+    position: fixed;
     cursor: pointer; 
 }
 #notifications_counter {
@@ -143,7 +157,6 @@ header img {
     line-height: 20px;
     right: 10px;
     top: 10px;
-    background-color: crimson;
     cursor: pointer; 
     width: 20px;
     height: 20px;
@@ -157,7 +170,4 @@ header img {
 }
 .notifications_list li {
     padding: 15px 20px 15px 20px;
-}
-.notifications_list li:hover {
-    background-color: rgb(230, 230, 230);
 }

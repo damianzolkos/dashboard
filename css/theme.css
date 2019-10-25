@@ -29,3 +29,9 @@ header {
     background-image: linear-gradient(to right, rgb(45, 0, 160),  rgb(120, 0, 200));
     color: #fff;
 }
+.notifications_list li:hover {
+    background-color: rgb(245, 245, 245);
+}
+#notifications_counter {
+    background-color: crimson;
+}

@@ -1,4 +1,4 @@
-var notifications = 0;
+var notifications = 8;
 
 function onLoad(){
         for (let i = 0; i<pages.length; i++) {
