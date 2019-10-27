@@ -1,6 +1,15 @@
-var notifications = 8;
+var notifications = 0;
+var messages = [];
+
+var appName = "Template";
 
 function onLoad(){
+    console.log("onLoad");
+    // initial config of the app
+    window.document.title = appName;
+    document.getElementById("logo").innerHTML = appName;
+    // ###########################
+
         for (let i = 0; i<pages.length; i++) {
             createSidebarMenuItem(pages[i]);
             createPages(pages[i]);
@@ -10,9 +19,7 @@ function onLoad(){
         for (let i = 0; i<boxes.length; i++) {
             createBox(boxes[i][0], boxes[i][1]);
         }
-
-
-        notificationsCounter();
+        notificationsCounterUpdate();
     }
 function changeScreen(nameOfScreen) {
         for (let i = 0; i<pages.length; i++) {
@@ -44,20 +51,44 @@ function createBox(whereToCreate, nameOfMenuItem) {
 }
 function notificationsWindowToggle() {
         var windowState = document.getElementById('notifications').style.visibility;
-        if (windowState === "hidden") {
+        if (windowState === "hidden" || windowState === "") {
             document.getElementById('notifications').style.visibility = "visible";
             document.getElementById('notifications').style.opacity = 1;
         } else {
         document.getElementById('notifications').style.visibility = "hidden";
         document.getElementById('notifications').style.opacity = 0;
         }
-    }
-function notificationsCounter() {
+}
+function notificationsCounterUpdate() {
     var notification_counter = document.getElementById('notifications_counter');
+    var noNotifications = document.getElementById('noNotifications');
+    var clearNotifications = document.getElementById('clear_notifications');
 
     if (notifications == 0) {
         notification_counter.style.visibility = "hidden";
-    } else notification_counter.style.visibility = "visible";
-
+        noNotifications.style.display = "block";
+        clearNotifications.style.visibility = "hidden";
+    } else {
+        notification_counter.style.visibility = "visible";
+        clearNotifications.style.visibility = "visible";
+        noNotifications.style.display = "none";
+    }
     notification_counter.innerHTML = notifications;
+}
+function newNotification(message) {
+    messages[notifications] = message;
+    notifications++;
+    var newMessageLi = document.createElement("li");
+    newMessageLi.innerHTML = message;
+    document.getElementById("notifications_list").appendChild(newMessageLi);
+    notificationsCounterUpdate();
+}
+function clearNotifications() {
+    notifications = 0;
+    while (messages.length > 0) {
+        messages.pop();
+    }
+    $("#notifications_list").children(":not(#noNotifications)").remove();
+    notificationsCounterUpdate();
+    notificationsWindowToggle();
 }

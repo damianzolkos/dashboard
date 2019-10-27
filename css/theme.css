@@ -32,6 +32,16 @@ header {
 .notifications_list li:hover {
     background-color: rgb(245, 245, 245);
 }
+#clear_notifications {
+    background-color: #ff4081;
+}
+#clear_notifications:hover {
+    background-color: rgb(173, 16, 47);
+}
+.notifications_title {
+    color: #fff;
+    background-image: linear-gradient(to right, rgb(45, 0, 160),  rgb(120, 0, 200));
+}
 #notifications_counter {
-    background-color: crimson;
+    background-color: #ff4081;
 }

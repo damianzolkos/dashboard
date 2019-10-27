@@ -59,13 +59,26 @@ header {
     display: block;
     top: 0px;
     z-index: 10;
-    padding: 12px;
+    padding-right: 12px;
+    padding-left: 30px;
+    height: 65px;
 }
-header img {
-    margin-top: 5px;
+.header_button {
+    float: right;
+    text-align: center;
+    width: 50px;
+    height: 65px;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+.header_button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.header_button img {
+    position: relative;
+    margin-top: 15px;
     width: 30px;
     height: auto;
-    float: right;
 }
 #content {
     position: absolute;
@@ -88,6 +101,7 @@ header img {
 #search_bar {
     position: relative;
     margin-left: 15px;
+    margin: 12px 0px;
     display: inline-block;
     z-index: 100;
     width: auto;
@@ -128,46 +142,70 @@ header img {
     opacity: 0;
     transition: visibility 0.2s ease-out, opacity 0.2s ease-out;
     z-index: 1000000000;
-    right: 15px;
+    right: 12px;
     top: 80px;
     position: fixed;
     background-color: #fff;
-    min-width: 300px;
-    max-height: 350px;
     border: solid 1px rgb(210, 210, 210);
+    border-radius: 5px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
 }
 .notifications_title {
     padding: 15px 20px 15px 20px;
-    display: block;
     margin: 0px;
+    border-radius: 5px;
     border-bottom: 1px solid rgb(210, 210, 210);
 }
-#notifications_icon {
-    top: 10px;
-    right: 15px;
+#clear_notifications {
     position: fixed;
-    cursor: pointer; 
+    display: inline-block;
+    padding: 5px;
+    right: 25px;
+    top: 80px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.2s ease-out;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #rgb(173, 16, 47);
 }
 #notifications_counter {
     visibility: hidden;
-    position: fixed;
+    top: -40px;
+    left: 10px;
+    position: relative;
+    display: inline-block;
     text-align: center;
-    font-size: 13px;
-    line-height: 20px;
-    right: 10px;
-    top: 10px;
+    font-size: 12px;
+    line-height: 18px;
     cursor: pointer; 
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(255, 58, 58, 0.9);
 }
-.notifications_list {
+#notifications_list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    max-height: 350px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
-.notifications_list li {
-    padding: 15px 20px 15px 20px;
+#notifications_list li {
+    font-size: 14px;
+    padding: 10px 15px 10px 15px;
+    transition: background-color 0.2s ease-out;
+    border-radius: 5px;
+}
+#notifications_list::-webkit-scrollbar, *::-webkit-scrollbar-thumb {
+    width: 12px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 4px solid transparent;
+}
+#notifications_list::-webkit-scrollbar-thumb {        
+    box-shadow: inset 0 0 0 10px;
+    color: rgba(0, 0, 0, 0.3);
 }
