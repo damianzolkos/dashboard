@@ -1,20 +1,13 @@
-var pages = ['Page 1','Page 2','Page 3','Page 4','Page 5'];
+var pages = ['Page 1','Page 2','Page 3'];
 var boxes = [
-    ['Page 1', 'Box 1'],
-    ['Page 1', 'Box 2'],
-    ['Page 1', 'Box 3'],
-    ['Page 2', 'Box 1'],
-    ['Page 2', 'Box 2'],
-    ['Page 3', 'Box 1'],
-    ['Page 3', 'Box 2'],
-    ['Page 3', 'Box 3'],
-    ['Page 4', 'Box 1'],
-    ['Page 4', 'Box 2'],
-    ['Page 4', 'Box 3'],
-    ['Page 4', 'Box 4'],
-    ['Page 5', 'Box 1'],
-    ['Page 5', 'Box 2'],
-    ['Page 5', 'Box 3'],
-    ['Page 5', 'Box 4'],
-    ['Page 5', 'Box 5']
+//  page name,  unique(!) id,   module name
+    ['Page 1', 'page1test1', 'test_module'],
+    ['Page 1', 'page1test2', 'example_module'],
+    ['Page 1', 'page1test3', 'test_module'],
+    ['Page 2', 'page2test1', 'test_module'],
+    ['Page 2', 'page2test2', 'example_module'],
+    ['Page 2', 'page2test3', 'example_module'],
+    ['Page 3', 'page3test1', 'example_module'],
+    ['Page 3', 'page3test2', 'example_module'],
+    ['Page 3', 'page3test3', 'example_module'],
 ];

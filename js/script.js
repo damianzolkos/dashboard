@@ -17,7 +17,7 @@ function onLoad(){
         changeScreen(pages[0]);
 
         for (let i = 0; i<boxes.length; i++) {
-            createBox(boxes[i][0], boxes[i][1]);
+            createBox(boxes[i][0], boxes[i][1], boxes[i][2]);
         }
         notificationsCounterUpdate();
     }
@@ -43,11 +43,14 @@ function createSidebarMenuItem(nameOfMenuItem) {
         menuElement.style.listStyleType = 'none';
         document.getElementById("sidebarMenu").appendChild(menuElement);
 }
-function createBox(whereToCreate, nameOfMenuItem) {
+function createBox(pageName, boxId, moduleName) {
         var box = document.createElement("div");
-        box.innerHTML = nameOfMenuItem;
         box.className = "box";
-        document.getElementById(whereToCreate).appendChild(box);
+        box.id = boxId;
+        document.getElementById(pageName).appendChild(box);
+        var moduleNameId = "#" + boxId;
+        var moduleFile = "modules/" + moduleName + ".html";
+        $(moduleNameId).load(moduleFile);
 }
 function notificationsWindowToggle() {
         var windowState = document.getElementById('notifications').style.visibility;
