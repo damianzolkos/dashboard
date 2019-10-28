@@ -1,8 +1,6 @@
 var notifications = 0;
 var messages = [];
 
-var appName = "Template";
-
 function onLoad(){
     console.log("onLoad");
     // initial config of the app
@@ -49,7 +47,7 @@ function createBox(pageName, boxId, moduleName) {
         box.id = boxId;
         document.getElementById(pageName).appendChild(box);
         var moduleNameId = "#" + boxId;
-        var moduleFile = "modules/" + moduleName + ".html";
+        var moduleFile = "modules/" + moduleName + "/" + moduleName + ".html";
         $(moduleNameId).load(moduleFile);
 }
 function notificationsWindowToggle() {

@@ -2,6 +2,30 @@
     padding: 20px;
 }
 .module_name {
-    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0px 0px 20px 0px;
     margin: 0;
+}
+.module_content {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+.module_group:not(:first-of-type) {
+    margin-top: 30px;
+}
+.module_description {
+    text-align: left;
+    margin: 0px auto;
+    margin-bottom: 30px;
+    padding: 0px 0px 8px 0px;
+    text-shadow: none;
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #ff4081;
+}
+p {
+    margin: 0;
+    padding: 0;
 }
