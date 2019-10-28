@@ -2,7 +2,19 @@ var notifications = 0;
 var messages = [];
 
 function onLoad(){
-    console.log("onLoad");
+
+    console.log("");console.log("");console.log("");
+    console.log("%c ###############################", "font-weight: bold;");
+    console.log("           "+appName);
+    console.log("%c ###############################", "font-weight: bold;");
+    console.log("");
+    console.log("%c Pages:", "font-weight: bold;");
+    console.table(pages);
+    console.log("");
+    console.log("%c Modules:", "font-weight: bold;");
+    console.table(boxes);
+    console.log("");console.log("");console.log("");
+
     // initial config of the app
     window.document.title = appName;
     document.getElementById("logo").innerHTML = appName;

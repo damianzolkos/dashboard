@@ -45,3 +45,12 @@ header {
 #notifications_counter {
     background-color: #ff4081;
 }
+input:checked + .slider {
+    background-color: #ff4081;
+  }
+.small_red_button {
+    background-color: #ff4081;
+}
+.small_red_button:hover {
+    background-color: rgb(173, 16, 47);
+}

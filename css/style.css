@@ -98,7 +98,7 @@ header {
     z-index: -1000;
 }
 #wrapper {
-    margin: 30px 20px;
+    margin: 40px 20px;
 }
 .page {
     position: relative;
@@ -262,4 +262,58 @@ button:active {
     color: #fff;
     transform: translateY(3px);
     box-shadow: 0px 0px 0px 0px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    top: -3px;
+    float: right;
+  }
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  .slider.round {
+    border-radius: 20px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .small_red_button {
+    display: inline-block;
+    padding: 5px;
+    right: 22px;
+    top: 93px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.2s ease-out;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #rgb(173, 16, 47);
 }
