@@ -1,0 +1,62 @@
+<!--
+####################################
+        chart module
+        using chartist js
+        https://gionkunz.github.io/chartist-js/
+####################################
+ -->
+
+<!-- additional config files -->
+<link rel="stylesheet" href="modules/chart/chartist.min.css">
+<script src="modules/chart/chartist.min.js"></script>
+
+<!-- module scecific styles -->
+<style rel="stylesheet">
+  /* lines */
+  .ct-series-a .ct-line,
+  .ct-series-a .ct-point {
+    stroke: rgb(45, 0, 160);
+    stroke-width: 3px;
+  }
+
+  /* points */
+  .ct-series-a .ct-point {
+    stroke: #ff4081;
+    stroke-width: 10px;
+    stroke-linecap: round;
+  }
+</style>
+
+<!-- module specific scripts -->
+<script type="text/javascript">
+
+  var data = {
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    series: [
+      [1, 2, 1, 2, 1, 10, 0, -5, -2, 0]
+    ]
+  };
+
+  var options = {
+    fullWidth: true,
+    high: 10 + Math.max(...data.series[0]),
+    low: (-10) + Math.min(...data.series[0]),
+    chartPadding: {
+      right: 20,
+      left: -10,
+      top: 20,
+      bottom: 20
+    },
+  };
+
+  new Chartist.Line('.ct-chart', data, options);
+</script>
+
+<div class="module_wrapper" id="chart_module">
+  <p class="module_name">Chart</p>
+  <div class="module_content">
+    <p class="module_description">eg. outside temperature</p>
+    <div class="ct-chart ct-perfect-fourth"></div>
+  </div>
+</div>
+</div>

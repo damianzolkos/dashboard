@@ -1,3 +1,6 @@
+var dashboardVersion = 0.5.1;
+var dashboardAuthor = "Damian Żółkoś <damianzolkos@gmail.com> <http://github.com/damianzolkos";
+
 var notifications = 0;
 var messages = [];
 
@@ -24,8 +27,6 @@ function onLoad() {
     document.getElementById("logo").innerHTML = appName;
     // ###########################
 
-    czas();
-
     for (let i = 0; i < pages.length; i++) {
         createSidebarMenuItem(pages[i]);
         createPages(pages[i]);
@@ -35,19 +36,15 @@ function onLoad() {
     for (let i = 0; i < modules.length; i++) {
         createBox(modules[i][0], modules[i][1], modules[i][2]);
     }
+
+    clock();
+
     notificationsCounterUpdate();
 }
 
-function czas() {
+function clock() {
     getTime();
-    if ($('#datetime').length > 0) {
-        document.getElementById("hour").innerHTML = h;
-        document.getElementById("minutes").innerHTML = m;
-        document.getElementById("day").innerHTML = da;
-        document.getElementById("month").innerHTML = mo;
-        document.getElementById("year").innerHTML = y;
-    }
-    setTimeout(czas, 1000);
+    setTimeout(clock, 1000);
 }
 
 function changeScreen(nameOfScreen) {
