@@ -16,10 +16,6 @@ div#showSidebarButton {
     cursor: pointer;
 }
 
-
-
-
-
 #wrapper {
     margin: 40px 20px;
 }
@@ -68,9 +64,6 @@ div#showSidebarButton {
         transition: left 0.3s;
     }
   }
-
-
-
 
 
 
