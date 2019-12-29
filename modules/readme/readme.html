@@ -19,25 +19,42 @@
 <div class="module_wrapper" id="readme_module">
   <p class="module_name">Read me</p>
   <div class="module_content">
-    <div class="module_group">
-      <p class="module_description">HOW IT ALL WORKS</p>
 
+    <div class="module_group">
       <p>
-        This is an example module. It's purpose is to show all available
-        controls.
+        Dashboard is a simple web app interface with modules support.
       </p>
-      <br /><br />
+    </div>
+
+    <div class="module_group">
+      <p class="module_description">Pages</p>
+      <p>
+        Dashboard has a build-in pages system.
+      </p>
+    </div>
 
       <div class="module_group">
-        <p class="module_description">Another group</p>
-
+        <p class="module_description">Modules</p>
         <p>
-          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum
-          dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet. Lorem ipsum dolor sit amet.
+          Dashboard uses a modules system to add funcionality. Exery module is rendered in its own <i><b>box</b></i>.
+          <br>
+          Every module is a folder in <b><i>modules</i></b> directory. Every module can have a separate JS code.
+          <br>
+          Module simply is a fragment of HTML code, that is rendered within a defined <b><i>page</i></b>.
         </p>
-        <br /><br />
       </div>
+
+      <div class="module_group">
+        <p class="module_description">Notifications</p>
+        <p>
+          Dashboard have a built-in notifications system.<br>
+          usage: <br>
+          <code>
+            newNotification('Test notification.');
+          </code>
+        </p>
+      </div>
+
     </div>
   </div>
 </div>
