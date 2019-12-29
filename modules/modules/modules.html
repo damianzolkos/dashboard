@@ -1,0 +1,43 @@
+<!--
+####################################
+        MODULES module
+####################################
+ -->
+
+<!-- additional config files -->
+
+<!-- module scecific styles -->
+<style rel="stylesheet">
+  #modules_list {
+    padding: 0;
+    list-style-type: none;
+  }
+  #modules_list li {
+    padding: 10px 0px;
+  }
+</style>
+
+<!-- module specific scripts -->
+<script type="text/javascript">
+  for (let i = 0; i < boxes.length; i++) {
+    var listElement = document.createElement("li");
+    listElement.innerHTML =
+      boxes[i][2] +
+      "<label class='switch'><input type='checkbox'/><span class='slider round'></span></label>";
+    document.getElementById("modules_list").appendChild(listElement);
+  }
+</script>
+
+<!--
+############   MODULE BODY   ############
+ -->
+
+<div class="module_wrapper">
+  <p class="module_name">Modules</p>
+  <div class="module_content">
+    <div class="module_group">
+      <p class="module_description">Loaded modules</p>
+      <ul id="modules_list"></ul>
+    </div>
+  </div>
+</div>
