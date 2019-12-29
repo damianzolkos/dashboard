@@ -1,4 +1,4 @@
-var dashboardVersion = 0.5.1;
+var dashboardVersion = "0.5.1";
 var dashboardAuthor = "Damian Żółkoś <damianzolkos@gmail.com> <http://github.com/damianzolkos";
 
 var notifications = 0;
