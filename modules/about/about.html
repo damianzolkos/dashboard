@@ -1,0 +1,42 @@
+<!--
+####################################
+        about module
+####################################
+ -->
+
+<!-- additional config files -->
+
+<!-- module scecific styles -->
+<style rel="stylesheet"></style>
+
+<!-- module specific scripts -->
+<script type="text/javascript">
+
+document.getElementById("about_module_appName").innerHTML = appName;
+document.getElementById("about_module_appVersion").innerHTML = appVersion;
+document.getElementById("about_module_author").innerHTML = author;
+document.getElementById("about_module_authorLink").href = authorLink;
+
+</script>
+
+<!--
+############   MODULE BODY   ############
+ -->
+
+<div class="module_wrapper" id="readme_module">
+  <p class="module_name">About</p>
+  <div class="module_content">
+    <div class="module_group">
+      <p>
+
+        App name: <span id="about_module_appName"></span>
+        <br>
+        Version: <span id="about_module_appVersion"></span>
+        <br>
+        <br>
+        by: &copy <span id="about_module_author"></span>
+        <a id="about_module_authorLink" href="">GitHub</a>
+      </p>
+    </div>
+  </div>
+</div>
