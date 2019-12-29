@@ -19,10 +19,10 @@
 
 <!-- module specific scripts -->
 <script type="text/javascript">
-  for (let i = 0; i < boxes.length; i++) {
+  for (let i = 0; i < modules.length; i++) {
     var listElement = document.createElement("li");
     listElement.innerHTML =
-      boxes[i][2] +
+      modules[i][2] +
       "<label class='switch'><input type='checkbox'/><span class='slider round'></span></label>";
     document.getElementById("modules_list").appendChild(listElement);
   }

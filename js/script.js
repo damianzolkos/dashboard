@@ -1,20 +1,24 @@
 var notifications = 0;
 var messages = [];
 
-function onLoad(){
+function onLoad() {
 
-    console.log("");console.log("");console.log("");
+    console.log("");
+    console.log("");
+    console.log("");
     console.log("%c ###############################", "font-weight: bold;");
-    console.log("           "+appName);
+    console.log("           " + appName);
     console.log("%c ###############################", "font-weight: bold;");
     console.log("");
     console.log("%c Pages:", "font-weight: bold;");
     console.table(pages);
     console.log("");
     console.log("%c Modules:", "font-weight: bold;");
-    console.table(boxes);
-    console.log("");console.log("");console.log("");
-    
+    console.table(modules);
+    console.log("");
+    console.log("");
+    console.log("");
+
     // initial config of the app
     window.document.title = appName;
     document.getElementById("logo").innerHTML = appName;
@@ -22,70 +26,76 @@ function onLoad(){
 
     czas();
 
-        for (let i = 0; i<pages.length; i++) {
-            createSidebarMenuItem(pages[i]);
-            createPages(pages[i]);
-        }
-        changeScreen(pages[0]);
-
-        for (let i = 0; i<boxes.length; i++) {
-            createBox(boxes[i][0], boxes[i][1], boxes[i][2]);
-        }
-        notificationsCounterUpdate();
+    for (let i = 0; i < pages.length; i++) {
+        createSidebarMenuItem(pages[i]);
+        createPages(pages[i]);
     }
+    changeScreen(pages[0]);
+
+    for (let i = 0; i < modules.length; i++) {
+        createBox(modules[i][0], modules[i][1], modules[i][2]);
+    }
+    notificationsCounterUpdate();
+}
 
 function czas() {
-        getTime();
-        if ($('#datetime').length > 0) {
-            document.getElementById("hour").innerHTML = h;
-            document.getElementById("minutes").innerHTML = m;
-            document.getElementById("day").innerHTML = da;
-            document.getElementById("month").innerHTML = mo;
-            document.getElementById("year").innerHTML = y;
-        }
-        setTimeout(czas, 1000);
+    getTime();
+    if ($('#datetime').length > 0) {
+        document.getElementById("hour").innerHTML = h;
+        document.getElementById("minutes").innerHTML = m;
+        document.getElementById("day").innerHTML = da;
+        document.getElementById("month").innerHTML = mo;
+        document.getElementById("year").innerHTML = y;
+    }
+    setTimeout(czas, 1000);
 }
+
 function changeScreen(nameOfScreen) {
-        for (let i = 0; i<pages.length; i++) {
-            document.getElementById(pages[i]+"_menuItem").className = "inactive";
-            document.getElementById(pages[i]).style.display = "none";
-        }
-        document.getElementById(nameOfScreen+"_menuItem").className = "active";
-        document.getElementById(nameOfScreen).style.display = "";
+    for (let i = 0; i < pages.length; i++) {
+        document.getElementById(pages[i] + "_menuItem").className = "inactive";
+        document.getElementById(pages[i]).style.display = "none";
+    }
+    document.getElementById(nameOfScreen + "_menuItem").className = "active";
+    document.getElementById(nameOfScreen).style.display = "";
 }
+
 function createPages(nameOfPage) {
-        var newPage = document.createElement("div");
-        newPage.id = nameOfPage;
-        newPage.className = "page";
-        document.getElementById("wrapper").appendChild(newPage);
+    var newPage = document.createElement("div");
+    newPage.id = nameOfPage;
+    newPage.className = "page";
+    document.getElementById("wrapper").appendChild(newPage);
 }
+
 function createSidebarMenuItem(nameOfMenuItem) {
-        var menuElement = document.createElement("li");
-        menuElement.innerHTML = nameOfMenuItem;
-        menuElement.setAttribute("onclick","changeScreen('"+nameOfMenuItem+"');");
-        menuElement.id = nameOfMenuItem+"_menuItem";
-        menuElement.style.listStyleType = 'none';
-        document.getElementById("sidebarMenu").appendChild(menuElement);
+    var menuElement = document.createElement("li");
+    menuElement.innerHTML = nameOfMenuItem;
+    menuElement.setAttribute("onclick", "changeScreen('" + nameOfMenuItem + "');");
+    menuElement.id = nameOfMenuItem + "_menuItem";
+    menuElement.style.listStyleType = 'none';
+    document.getElementById("sidebarMenu").appendChild(menuElement);
 }
+
 function createBox(pageName, boxId, moduleName) {
-        var box = document.createElement("div");
-        box.className = "box";
-        box.id = boxId;
-        document.getElementById(pageName).appendChild(box);
-        var moduleNameId = "#" + boxId;
-        var moduleFile = "modules/" + moduleName + "/" + moduleName + ".html";
-        $(moduleNameId).load(moduleFile);
+    var box = document.createElement("div");
+    box.className = "box";
+    box.id = boxId;
+    document.getElementById(pageName).appendChild(box);
+    var moduleNameId = "#" + boxId;
+    var moduleFile = "modules/" + moduleName + "/" + moduleName + ".html";
+    $(moduleNameId).load(moduleFile);
 }
+
 function notificationsWindowToggle() {
-        var windowState = document.getElementById('notifications').style.visibility;
-        if (windowState === "hidden" || windowState === "") {
-            document.getElementById('notifications').style.visibility = "visible";
-            document.getElementById('notifications').style.opacity = 1;
-        } else {
+    var windowState = document.getElementById('notifications').style.visibility;
+    if (windowState === "hidden" || windowState === "") {
+        document.getElementById('notifications').style.visibility = "visible";
+        document.getElementById('notifications').style.opacity = 1;
+    } else {
         document.getElementById('notifications').style.visibility = "hidden";
         document.getElementById('notifications').style.opacity = 0;
-        }
+    }
 }
+
 function notificationsCounterUpdate() {
     var notification_counter = document.getElementById('notifications_counter');
     var noNotifications = document.getElementById('noNotifications');
@@ -102,6 +112,7 @@ function notificationsCounterUpdate() {
     }
     notification_counter.innerHTML = notifications;
 }
+
 function newNotification(message) {
     messages[notifications] = message;
     notifications++;
@@ -110,6 +121,7 @@ function newNotification(message) {
     document.getElementById("notifications_list").appendChild(newMessageLi);
     notificationsCounterUpdate();
 }
+
 function clearNotifications() {
     notifications = 0;
     while (messages.length > 0) {
@@ -120,7 +132,7 @@ function clearNotifications() {
     notificationsWindowToggle();
 }
 
-const mq = window.matchMedia( "(max-width: 500px)" );
+const mq = window.matchMedia("(max-width: 500px)");
 if (mq.matches == true) {
     showOrHide = 0;
 } else showOrHide = 1;
@@ -131,8 +143,7 @@ function showSidebar() {
         document.getElementById('content').style.left = "250px";
         document.getElementById('content').style.width = 'calc(100% - 250px)';
         showOrHide = 1;
-    }
-    else if (showOrHide == 1) {
+    } else if (showOrHide == 1) {
         document.getElementById('sidebar').style.transform = 'translate(-250px,0px)';
         document.getElementById('content').style.left = "0px";
         document.getElementById('content').style.width = '100%';
