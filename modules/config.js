@@ -1,13 +1,12 @@
-var appName = "Template";
+var appName = "Dashboard";
 
 // pages = ['Page 1', 'Page 2'];
-var pages = ['Page 1', 'Page 2'];
+var pages = ['Page 1', 'Settings'];
 
 
-//  	page name,  unique(!) id,   module name
+//   page name,  unique(!) id,   module name
 //	eq. ['Page 1', 'example', 'example'],
 var boxes = [
     ['Page 1', 'example', 'example'],
-    ['Page 2', 'example-2', 'example'],
-    ['Page 2', 'example-3', 'example'],
+    ['Settings', 'modules', 'modules'],
 ];

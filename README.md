@@ -1,3 +1,3 @@
 # dashboard
 
-Simple web app interface with modules support
+Simple web app interface with modules support.
