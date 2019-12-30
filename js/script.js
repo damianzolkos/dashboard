@@ -39,7 +39,6 @@ function onLoad() {
     }
 
     clock();
-
     notificationsCounterUpdate();
 }
 
@@ -84,13 +83,14 @@ function createBox(pageName, boxId, moduleName) {
 }
 
 function notificationsWindowToggle() {
-    var windowState = document.getElementById('notifications').style.visibility;
+    var notificationsWindow = document.getElementById('notifications');
+    var windowState = notificationsWindow.style.visibility;
     if (windowState === "hidden" || windowState === "") {
-        document.getElementById('notifications').style.visibility = "visible";
-        document.getElementById('notifications').style.opacity = 1;
+        notificationsWindow.style.visibility = "visible";
+        notificationsWindow.style.opacity = 1;
     } else {
-        document.getElementById('notifications').style.visibility = "hidden";
-        document.getElementById('notifications').style.opacity = 0;
+        notificationsWindow.style.visibility = "hidden";
+        notificationsWindow.style.opacity = 0;
     }
 }
 
@@ -136,15 +136,17 @@ if (mq.matches == true) {
 } else showOrHide = 1;
 
 function showSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var content = document.getElementById('content');
     if (showOrHide == 0) {
-        document.getElementById('sidebar').style.transform = 'translate(0px,0px)';
-        document.getElementById('content').style.left = "250px";
-        document.getElementById('content').style.width = 'calc(100% - 250px)';
+        sidebar.style.transform = 'translate(0px,0px)';
+        content.style.left = "250px";
+        content.style.width = 'calc(100% - 250px)';
         showOrHide = 1;
     } else if (showOrHide == 1) {
-        document.getElementById('sidebar').style.transform = 'translate(-250px,0px)';
-        document.getElementById('content').style.left = "0px";
-        document.getElementById('content').style.width = '100%';
+        sidebar.style.transform = 'translate(-250px,0px)';
+        content.style.left = "0px";
+        content.style.width = '100%';
         showOrHide = 0;
     }
 }

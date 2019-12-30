@@ -1,6 +1,8 @@
+/* CSS GRID LAYOUT CHILD */
 .module_wrapper {
     padding: 20px;
 }
+
 .module_name {
     position: relative;
     display: inline-block;
