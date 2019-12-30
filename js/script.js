@@ -1,14 +1,25 @@
-var dashboardVersion = "0.5.1";
-var dashboardAuthor = "Damian Żółkoś";
-var dashboardAuthorLink = "http://github.com/damianzolkos";
+const configAddress = "config.json";
+//const configAddres = "http://localhost:1880/config";
 
 var notifications = 0;
 var messages = [];
 
-function onLoad() {
+// avaiable variables:
+//
+// appName, modules, pages, config, notifications, messages
+//
+// date and time:
+//      hour: h
+//      minute: m
+//      year: y
+//      month: mo
+//      day: da
 
-    console.log("");
-    console.log("");
+$.getJSON(configAddress, function (json) {
+    parseConfig(JSON.stringify(json));
+});
+
+function onLoad() {
     console.log("");
     console.log("%c ###############################", "font-weight: bold;");
     console.log("           " + appName);
@@ -20,13 +31,19 @@ function onLoad() {
     console.log("%c Modules:", "font-weight: bold;");
     console.table(modules);
     console.log("");
-    console.log("");
-    console.log("");
 
-    // initial config of the app
     window.document.title = appName;
     document.getElementById("logo").innerHTML = appName;
-    // ###########################
+
+    clock();
+    notificationsCounterUpdate();
+}
+
+function parseConfig(newJson) {
+    config = JSON.parse(newJson);
+    pages = config.pages;
+    modules = config.modules;
+    appName = config.appName;
 
     for (let i = 0; i < pages.length; i++) {
         createSidebarMenuItem(pages[i]);
@@ -34,12 +51,11 @@ function onLoad() {
     }
     changeScreen(pages[0]);
 
-    for (let i = 0; i < modules.length; i++) {
-        createBox(modules[i][0], modules[i][1], modules[i][2]);
+    for (let i = 0; i < config.activeModules.length; i++) {
+        module_name = config["activeModules"][i];
+        module = config["modules"][module_name];
+        createBox(module.page, module.id, module.name, module.visibility);
     }
-
-    clock();
-    notificationsCounterUpdate();
 }
 
 function clock() {
@@ -72,7 +88,7 @@ function createSidebarMenuItem(nameOfMenuItem) {
     document.getElementById("sidebarMenu").appendChild(menuElement);
 }
 
-function createBox(pageName, boxId, moduleName) {
+function createBox(pageName, boxId, moduleName, moduleVisibility) {
     var box = document.createElement("div");
     box.className = "box";
     box.id = boxId;
@@ -80,6 +96,12 @@ function createBox(pageName, boxId, moduleName) {
     var moduleNameId = "#" + boxId;
     var moduleFile = "modules/" + moduleName + "/" + moduleName + ".html";
     $(moduleNameId).load(moduleFile);
+
+    if (moduleVisibility == "none") {
+        box.style.display = "none";
+    } else if (moduleVisibility == "visible") {
+        box.style.display = "inline-block";
+    }
 }
 
 function notificationsWindowToggle() {

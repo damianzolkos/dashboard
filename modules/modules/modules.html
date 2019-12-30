@@ -12,6 +12,7 @@
     padding: 0;
     list-style-type: none;
   }
+
   #modules_list li {
     padding: 10px 0px;
   }
@@ -19,11 +20,18 @@
 
 <!-- module specific scripts -->
 <script type="text/javascript">
-  for (let i = 0; i < modules.length; i++) {
+  for (let i = 0; i < config.activeModules.length; i++) {
     var listElement = document.createElement("li");
+
+    module_name = config.activeModules[i];
+    module = config["modules"][module_name];
+
+    if (module.visibility == "visible") checked = " checked";
+    else if (module.visibility == "none") checked = " ";
+
     listElement.innerHTML =
-      modules[i][2] +
-      "<label class='switch'><input type='checkbox'/><span class='slider round'></span></label>";
+      config.activeModules[i] +
+      "<label class='switch'><input type='checkbox' disabled " + checked + "/><span class='slider round'></span></label>";
     document.getElementById("modules_list").appendChild(listElement);
   }
 </script>
@@ -36,7 +44,9 @@
   <p class="module_name">Modules</p>
   <div class="module_content">
     <div class="module_group">
-      <p class="module_description">Loaded modules</p>
+      <p class="module_description">Loaded modules
+        <span style="float:right;">visibility</span>
+      </p>
       <ul id="modules_list"></ul>
     </div>
   </div>
