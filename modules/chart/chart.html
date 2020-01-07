@@ -1,60 +1,93 @@
 <!--
 ####################################
+
         chart module
-        using chartist js
-        https://gionkunz.github.io/chartist-js/
+
+        using chart.js
+        https://www.chartjs.org/
+        https://github.com/chartjs/Chart.js
+
 ####################################
- -->
+-->
 
 <!-- additional config files -->
-<link rel="stylesheet" href="modules/chart/chartist.min.css">
-<script src="modules/chart/chartist.min.js"></script>
 
 <!-- module scecific styles -->
-<style rel="stylesheet">
-  /* lines */
-  .ct-series-a .ct-line,
-  .ct-series-a .ct-point {
-    stroke: rgb(45, 0, 160);
-    stroke-width: 3px;
-  }
-  /* points */
-  .ct-series-a .ct-point {
-    stroke: #ff4081;
-    stroke-width: 10px;
-    stroke-linecap: round;
-  }
-</style>
 
 <!-- module specific scripts -->
-<script type="text/javascript">
+<!-- CHART.JS -->
+<script src="modules/chart-js/chart.js"></script>
+<script>
+  var ctx = document.getElementById('myChart');
+
   var data = {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    series: [
-      [1, 2, 1, 2, 1, 10, 0, -5, -2, 0]
+    datasets: [{
+        backgroundColor: '#ff4081',
+        borderColor: '#ff4081',
+        borderWidth: 3,
+        fill: false,
+        pointRadius: 4,
+        pointRadiusHover: 4,
+        pointBorderWidth: 0
+      },
+      {
+        backgroundColor: 'blue',
+        borderColor: 'blue',
+        borderWidth: 3,
+        fill: false
+      }
     ]
   };
 
   var options = {
-    fullWidth: true,
-    high: 10 + Math.max(...data.series[0]),
-    low: (-10) + Math.min(...data.series[0]),
-    chartPadding: {
-      right: 20,
-      left: -10,
-      top: 20,
-      bottom: 20
+    responsive: true,
+    legend: {
+      display: false
     },
+    tooltips: {
+      mode: 'index',
+      intersect: true,
+    },
+    scales: {
+      xAxes: [{
+        display: true,
+        scaleLabel: {
+          display: false,
+          labelString: ''
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          suggestedMin: 0,
+          suggestedMax: 0
+        },
+        display: true,
+        scaleLabel: {
+          display: false,
+          labelString: ''
+        }
+      }]
+    }
   };
 
-  new Chartist.Line('.ct-chart', data, options);
+  async function renderChart() {
+    data.labels = [1, 2, 3, 4, 5, 6, 7];
+    data.datasets[0].data = [4, 2, 7, 3, 9, 4, 1];
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: options
+    });
+  }
+  renderChart();
 </script>
 
 <div class="module_wrapper" id="chart_module">
   <p class="module_name">Chart</p>
   <div class="module_content">
-    <p class="module_description">eg. outside temperature</p>
-    <div class="ct-chart ct-perfect-fourth"></div>
+    <p class="module_description">Chart rendered using <a href="https://www.chartjs.org/">chart.js</a></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
   </div>
 </div>
 </div>

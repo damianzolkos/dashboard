@@ -21,18 +21,23 @@
 <!-- module specific scripts -->
 <script type="text/javascript">
   for (let i = 0; i < config.activeModules.length; i++) {
-    var listElement = document.createElement("li");
+    let listElement = document.createElement("li");
 
-    module_name = config.activeModules[i];
-    module = config["modules"][module_name];
+    module_name = config.activeModules[i][0];
 
-    if (module.visibility == "visible") checked = " checked";
-    else if (module.visibility == "none") checked = " ";
+    $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
+      let module = JSON.parse(JSON.stringify(json));
 
-    listElement.innerHTML =
-      config.activeModules[i] +
-      "<label class='switch'><input type='checkbox' disabled " + checked + "/><span class='slider round'></span></label>";
-    document.getElementById("modules_list").appendChild(listElement);
+      if (module.visibility == "visible") checked = " checked";
+      else if (module.visibility == "none") checked = " ";
+
+      listElement.innerHTML =
+        config.activeModules[i][0] +
+        "<label class='switch'><input type='checkbox' disabled " + checked +
+        "/><span class='slider round'></span></label>";
+      document.getElementById("modules_list").appendChild(listElement);
+      
+    });
   }
 </script>
 

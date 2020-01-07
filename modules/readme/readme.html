@@ -17,7 +17,7 @@
  -->
 
 <div class="module_wrapper" id="readme_module">
-  <p class="module_name">Read me</p>
+  <p class="module_name">Read me [WORK IN PROGRESS]</p>
   <div class="module_content">
 
     <div class="module_group">
@@ -41,6 +41,9 @@
         Every module is a folder in <b><i>modules</i></b> directory. Every module can have a separate JS code.
         <br>
         Module simply is a fragment of HTML code, that is rendered within a defined <b><i>page</i></b>.
+        <br>
+        Every module has a module.json file with config of module: name, unique id, defaultPage, visibility. If page is not
+        specified in config.json, dashboard will render a box in defaultPage. If the page does not exist it will be added.
       </p>
     </div>
 

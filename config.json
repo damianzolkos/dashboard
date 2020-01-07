@@ -2,47 +2,15 @@
   "appName": "Dashboard",
   "appAuthor": "Damian Żółkoś",
   "appAuthorLink": "http://github.com/damianzolkos",
+  "serverAddress": "http://192.168.1.11",
   "pages": [
-    "Homepage",
-    "Read me"
+    "Homepage"
   ],
   "activeModules": [
-    "example",
-    "chart",
-    "readme",
-    "http",
-    "modules"
-  ],
-  "modules": {
-    "example": {
-      "name": "example",
-      "id": "example",
-      "page": "Homepage",
-      "visibility": "visible"
-    },
-    "chart": {
-      "name": "chart",
-      "id": "chart",
-      "page": "Homepage",
-      "visibility": "visible"
-    },
-    "modules": {
-      "name": "modules",
-      "id": "modules",
-      "page": "Homepage",
-      "visibility": "visible"
-    },
-    "readme": {
-      "name": "readme",
-      "id": "readme",
-      "page": "Read me",
-      "visibility": "visible"
-    },
-    "http": {
-      "name": "http",
-      "id": "http",
-      "page": "Homepage",
-      "visibility": "none"
-    }
-  }
+    ["example", "Homepage"],
+    ["chart", "Homepage"],
+    ["modules", "Homepage"],
+    ["links", "Homepage"],
+    ["readme"]
+  ]
 }
