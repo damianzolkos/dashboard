@@ -7,8 +7,8 @@
     "Homepage"
   ],
   "activeModules": [
-    ["example", "Homepage"],
     ["chart", "Homepage"],
+    ["example", "Homepage"],
     ["modules", "Homepage"],
     ["links", "Homepage"],
     ["readme"]

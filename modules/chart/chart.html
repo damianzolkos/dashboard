@@ -16,9 +16,9 @@
 
 <!-- module specific scripts -->
 <script>
-  var ctx = document.getElementById('myChart');
+  let ctx1 = document.getElementById('myChart');
 
-  var data = {
+  let data = {
     datasets: [{
         backgroundColor: '#ff4081',
         borderColor: '#ff4081',
@@ -37,7 +37,7 @@
     ]
   };
 
-  var options = {
+  let options = {
     responsive: true,
     legend: {
       display: false
@@ -68,11 +68,23 @@
     }
   };
 
-  async function renderChart() {
-    data.labels = [1, 2, 3, 4, 5, 6, 7];
-    data.datasets[0].data = [4, 2, 7, 3, 9, 4, 1];
+  function renderChart() {
+    data.labels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    data.datasets[0].data = [4, 2, 7, 3, 9, 4, 1, 4, 2];
 
-    var myChart = new Chart(ctx, {
+    document.getElementById('addData').addEventListener('click', function () {
+      data.labels.push(10);
+      liczba = (Math.random() * 10)
+      data.datasets[0].data.push(liczba);
+
+      if (data.labels.length > 30) {
+        data.datasets[0].data.shift();
+        data.labels.shift();
+      }
+      myChart.update();
+    });
+
+    let myChart = new Chart(ctx1, {
       type: 'line',
       data: data,
       options: options
@@ -85,6 +97,8 @@
   <p class="module_name">Chart</p>
   <div class="module_content">
     <p class="module_description">Chart rendered using <a href="https://www.chartjs.org/">chart.js</a></p>
+    <button class="small_red_button" id="addData">add data</button>
+    <br><br>
     <canvas id="myChart" width="10" height="10"></canvas>
   </div>
 </div>
