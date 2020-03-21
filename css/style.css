@@ -14,9 +14,17 @@ div#showSidebarButton {
     margin-left: -20px;
 }
 
-#showSidebarButton img {
-    margin-top: 12px;
+#sidebarbutton {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
     cursor: pointer;
+}
+.sidebarbuttonline {
+    background-color: #fff;
+    margin: 5px;
+    min-width: 30px;
+    min-height: 4px;
 }
 
 #wrapper {
@@ -61,8 +69,9 @@ div#showSidebarButton {
 }
 
 .button {
+    position: relative;
     margin: 5px;
-    min-width: 120px;
+    min-width: calc(33.33% - 10px);
     height: 45px;
     font-size: 13pt;
     border-radius: 3px;

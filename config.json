@@ -7,10 +7,8 @@
     "Homepage"
   ],
   "activeModules": [
-    ["chart", "Homepage"],
-    ["example", "Homepage"],
-    ["modules", "Homepage"],
-    ["links", "Homepage"],
-    ["readme"]
+    ["smogchart", "Homepage"],
+    ["buttons", "Homepage"],
+    ["links", "Homepage"]
   ]
 }
