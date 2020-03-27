@@ -6,6 +6,7 @@ body {
     max-width: 100%;
 }
 
+
 div#showSidebarButton {
     display: inline-block;
     position: relative;
@@ -15,11 +16,10 @@ div#showSidebarButton {
 }
 
 #sidebarbutton {
-    width: 40px;
-    height: 40px;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .sidebarbuttonline {
     background-color: #fff;
     margin: 5px;
@@ -83,12 +83,15 @@ div#showSidebarButton {
     #wrapper {
         margin: 20px 10px;
     }
+
     #header {
         background-image: linear-gradient(to right, rgb(45, 0, 160), rgb(45, 0, 160));
     }
+
     #mobile_logo {
         visibility: visible;
     }
+
     #sidebar {
         position: fixed;
         visibility: visible;
@@ -117,6 +120,7 @@ div#showSidebarButton {
         height: 60px;
     }
 }
+
 #logo {
     position: relative;
     font-weight: 400;
