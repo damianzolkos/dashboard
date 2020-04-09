@@ -6,7 +6,6 @@ body {
     max-width: 100%;
 }
 
-
 div#showSidebarButton {
     display: inline-block;
     position: relative;
@@ -71,7 +70,7 @@ div#showSidebarButton {
 .button {
     position: relative;
     margin: 5px;
-    min-width: calc(33.33% - 10px);
+    min-width: calc(33.33% - 15px);
     height: 45px;
     font-size: 13pt;
     border-radius: 3px;
