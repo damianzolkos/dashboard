@@ -28,6 +28,7 @@
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,700&amp;subset=latin-ext"
     rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- /FONTS -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -61,6 +62,15 @@
     </div>
   </div>
 
+  <div id="shade">
+    <div id="popup" class="box">
+      <div onclick="hideAlert()" class="disable"><i class="material-icons right-align">clear</i></div>
+      <p class="popuph1" id="popup_title"></p>
+      <h2  id="popup_message"></h2>
+    </div>
+  </div>
+
+
   <content id="content">
     <header id="header">
 
@@ -83,6 +93,10 @@
       <!-- modules go here -->
     </div>
 
+    <div id="footer">
+      &copy; 2020 <a id="authorLink" href=""><span id="author"></span></a>
+      <span style="float: right;">1.2.3</span>
+    </div>
   </content>
 
 </body>

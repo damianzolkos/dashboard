@@ -46,9 +46,12 @@ async function onLoad() {
     window.document.title = config.appName;
     document.getElementById("logo").innerHTML = config.appName;
     document.getElementById("mobile_logo").innerHTML = config.appName;
+    document.getElementById("author").innerHTML = config.appAuthor;
+    document.getElementById("authorLink").href = config.appAuthorLink;
 
     clock();
     notificationsCounterUpdate();
+    alarm(config.appName, "Simple web app interface with modules support.");
 
     for (let i = 0; i < config.pages.length; i++) {
         createSidebarMenuItem(config.pages[i]);
@@ -88,6 +91,22 @@ async function onLoad() {
 function clock() {
     getTime();
     setTimeout(clock, 1000);
+}
+
+function alarm(title, message) {
+    $('body').addClass('stop-scrolling');
+    document.getElementById('shade').style.display = "flex";
+    document.getElementById('popup').style.display = "block";
+
+    
+    document.getElementById('popup_title').innerHTML = title;
+    document.getElementById('popup_message').innerHTML = message;
+}
+
+function hideAlert() {
+    $('body').removeClass('stop-scrolling');
+    document.getElementById('shade').style.display = "none";
+    document.getElementById('popup').style.display = "none";
 }
 
 function changeScreen(nameOfScreen) {
