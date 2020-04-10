@@ -51,7 +51,7 @@ async function onLoad() {
 
     clock();
     notificationsCounterUpdate();
-    alarm(config.appName, "Simple web app interface with modules support.");
+    alarm(config.appName, "Simple web app interface with modules support. <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "img/favicon.png");
 
     for (let i = 0; i < config.pages.length; i++) {
         createSidebarMenuItem(config.pages[i]);
@@ -93,12 +93,13 @@ function clock() {
     setTimeout(clock, 1000);
 }
 
-function alarm(title, message) {
+function alarm(title, message, icon) {
     $('body').addClass('stop-scrolling');
     document.getElementById('shade').style.display = "flex";
     document.getElementById('popup').style.display = "block";
 
-    
+
+    document.getElementById('popup_icon').src = icon;
     document.getElementById('popup_title').innerHTML = title;
     document.getElementById('popup_message').innerHTML = message;
 }

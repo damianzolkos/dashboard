@@ -4,13 +4,12 @@
   "appAuthorLink": "http://github.com/damianzolkos",
   "serverAddress": "http://192.168.1.11",
   "pages": [
-    "Homepage", "Read me"
+    "Homepage"
   ],
   "activeModules": [
     ["chart", "Homepage"],
     ["example", "Homepage"],
     ["links", "Homepage"],
-    ["smallinfo", "Homepage"],
-    ["readme"]
+    ["smallinfo", "Homepage"]
   ]
 }

@@ -8,11 +8,10 @@
 
 <!-- module scecific styles -->
 <style rel="stylesheet">
-    /* TESTS OF GRID SYSTEM */
-    /* #module_id {
-        grid-column: 1 / span 1;
-        grid-row: 2 / span 1;
-    } */
+    #module_name_example {
+        background: linear-gradient(45deg,#ff6f00,#ffca28)!important;
+        color: #fff;
+    }
 </style>
 
 <!-- module specific scripts -->
@@ -24,10 +23,13 @@
  -->
 
 <div class="module_wrapper" id="example_module">
-    <p class="module_name">Example module</p>
-    <label class="switch">
-        <input type="checkbox"><span class="slider round"></span>
-    </label>
+    <p id="module_name_example" class="module_name">
+        Example module
+        <label class="switch top_switch">
+            <input type="checkbox"><span class="slider round"></span>
+        </label>
+    </p>
+
     <div class="module_content">
         <div class="module_group">
             <p class="module_description">Group description</p>
@@ -52,11 +54,6 @@
         </div>
 
         <div class="module_group">
-            <p class="module_description">Another group</p>
-
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-                amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
-            <br><br>
 
             <button class="button off">Off</button>
             <button class="button on">On</button>
