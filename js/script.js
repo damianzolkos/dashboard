@@ -51,7 +51,7 @@ async function onLoad() {
 
     clock();
     notificationsCounterUpdate();
-    alarm(config.appName, "Simple web app interface with modules support. <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "img/favicon.png");
+    alarm(config.appName, "Simple and responsive web app interface with modules support.", "img/favicon.png");
 
     for (let i = 0; i < config.pages.length; i++) {
         createSidebarMenuItem(config.pages[i]);

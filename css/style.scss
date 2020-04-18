@@ -5,6 +5,8 @@ $color4: rgba(255, 58, 58, 0.9);
 $color5: rgb(173, 16, 47);
 $yellow1: #f39c12;
 $yellow2: #f1c40f;
+$blue1 :#341f97;
+$blue2: #5f27cd;
 $green1: #27ae60;
 $green2: #2ecc71;
 
@@ -37,7 +39,9 @@ div#showSidebarButton {
 }
 
 #wrapper {
-    margin: 40px 20px;
+    position: relative;
+    margin: 40px 20px 100px;
+    min-height: 100%;
 }
 
 #sidebar {
@@ -90,7 +94,8 @@ div#showSidebarButton {
 
 #footer {
     background-image: linear-gradient(to right, $maincolor1, $maincolor2);
-    position: relative;
+    position: absolute;
+    bottom: 0;
     color: rgb(190, 190, 190);
     padding: 20px;
     width: calc(100% - 40px);
@@ -167,7 +172,7 @@ h2 {
 
 @media screen and (max-width: 600px) {
     #wrapper {
-        margin: 20px 10px;
+        margin: 20px 10px 80px;
     }
 
     #header {
@@ -489,6 +494,7 @@ input:checked+.slider:before {
 
 .module_name {
     position: relative;
+    clear:both;
     font-weight: 300;
     font-size: 14pt;
     text-shadow: 0px 0px 2px #888;
@@ -504,6 +510,7 @@ input:checked+.slider:before {
     margin: 0;
     padding: 0;
     font-size: 14px;
+    clear:both;
 }
 
 .module_group:not(:first-of-type) {
@@ -533,6 +540,11 @@ p {
 
 .green {
     background: linear-gradient(45deg, $green1, $green2) !important;
+    color: #fff;
+}
+
+.blue {
+    background: linear-gradient(45deg , $blue1, $blue2) !important;
     color: #fff;
 }
 
