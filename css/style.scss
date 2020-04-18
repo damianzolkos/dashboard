@@ -1,17 +1,17 @@
 $mainColor: rgb(45, 0, 160);
 $secondaryColor: rgb(120, 0, 200);
-// $mainColor: rgb(51, 160, 0);
-// $secondaryColor: rgb(23, 200, 0);
-$color3: #ff4081;
-$color4: rgba(255, 58, 58, 0.9);
-$color5: rgb(173, 16, 47);
+$accentColor: #ff4081;
+$secondaryAccentColor: rgb(219, 34, 71);
+$shadow: rgba(0, 0, 0, 0.3);
+
+$red1: rgb(173, 16, 47);
+$red2: rgba(255, 58, 58, 0.9);
 $yellow1: #f39c12;
 $yellow2: #f1c40f;
 $blue1 :#341f97;
 $blue2: #5f27cd;
 $green1: #27ae60;
 $green2: #2ecc71;
-$shadow: rgba(0, 0, 0, 0.2);
 
 html,
 body {
@@ -19,6 +19,15 @@ body {
     font-weight: 300;
     min-width: 100%;
     max-width: 100%;
+}
+
+a:link,
+a:visited {
+    color: $mainColor;
+}
+
+a:hover {
+    color: $accentColor;
 }
 
 #showSidebarButton {
@@ -55,7 +64,7 @@ body {
     min-width: 250px;
     height: 100%;
     transition: transform 0.3s;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     color: rgb(43, 43, 43);
 }
 
@@ -67,6 +76,7 @@ body {
     left: 250px;
     z-index: -1000;
     transition: left 0.3s;
+    background-color: rgb(245, 245, 245);
 }
 
 #mobile_logo {
@@ -140,7 +150,9 @@ button:active {
     color: rgb(190, 190, 190);
     padding: 20px;
     width: calc(100% - 40px);
-    box-shadow: 0 6px 30px 0 rgba(45, 0, 160, .5) !important;
+    // box-shadow: 0 6px 30px 0 rgba(45, 0, 160, .5) !important;
+
+    box-shadow: 0 6px 30px 0 $shadow !important;
 }
 
 #footer a:link,
@@ -187,7 +199,7 @@ button:active {
     text-align: center;
     font-weight: 400;
     font-size: 18pt;
-    color: $color3;
+    color: $accentColor;
 }
 
 .center {
@@ -225,6 +237,8 @@ h2 {
     vertical-align: middle;
     line-height: 65px;
     box-shadow: 0 1px 15px $shadow;
+    background-color: $mainColor;
+    color: #fff;
 }
 
 #sidebarMenu {
@@ -236,6 +250,8 @@ h2 {
     border-radius: 3px;
     transition: color .3s ease;
     box-shadow: 0 1px 15px $shadow;
+    background-color: #fff;
+    text-shadow: 0 0 rgb(77, 77, 77);
 }
 
 #sidebarMenu:hover {
@@ -277,6 +293,15 @@ h2 {
     transition: background-color 0.2s ease-out;
 }
 
+#sidebarMenu li:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.active {
+    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+    color: #fff;
+}
+
 #header {
     position: sticky;
     min-width: calc(100% - 250px);
@@ -286,6 +311,9 @@ h2 {
     padding-right: 0px;
     padding-left: 30px;
     height: 65px;
+    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+    box-shadow: 0 6px 20px 0 $shadow !important;
+    color: #fff;
 }
 
 .header_button {
@@ -322,6 +350,12 @@ h2 {
     padding: 0px;
     border-radius: 1px;
     display: inline-block;
+    background-color: #fff;
+    box-shadow: 0px 0px 2px #111;
+}
+
+.deg {
+    color: $accentColor;
 }
 
 #notifications {
@@ -334,12 +368,18 @@ h2 {
     position: fixed;
     border-radius: 5px;
     width: 300px;
+    background-color: #fff;
+    border: solid 1px rgb(210, 210, 210);
+    box-shadow: 0 1px 8px $shadow;
 }
 
 .notifications_title {
     padding: 15px 20px 15px 20px;
     margin: 0px;
     border-radius: 5px;
+    color: #fff;
+    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+    border-bottom: 1px solid rgb(210, 210, 210);
 }
 
 #clear_notifications {
@@ -353,6 +393,12 @@ h2 {
     transition: background-color 0.2s ease-out;
     color: #fff;
     cursor: pointer;
+    background-color: $accentColor;
+    border: 1px solid $secondaryAccentColor;
+}
+
+#clear_notifications:hover {
+    background-color: $secondaryAccentColor;
 }
 
 #notifications_counter {
@@ -368,7 +414,8 @@ h2 {
     width: 18px;
     height: 18px;
     border-radius: 10px;
-    box-shadow: 1px 1px 10px $color4;
+    box-shadow: 1px 1px 10px $accentColor;
+    background-color: $accentColor;
 }
 
 #notifications_list {
@@ -385,6 +432,10 @@ h2 {
     padding: 10px 15px 10px 15px;
     transition: background-color 0.2s ease-out;
     border-radius: 5px;
+}
+
+.notifications_list li:hover {
+    background-color: rgb(245, 245, 245);
 }
 
 #notifications_list::-webkit-scrollbar,
@@ -413,6 +464,30 @@ h2 {
     color: rgba(0, 0, 0, 0.3);
 }
 
+code {
+    background-color: rgb(220, 220, 220);
+}
+
+input:checked+.slider {
+    background-color: $accentColor;
+}
+
+.top_switch .slider {
+    background-color: $shadow;
+}
+
+.top_switch input:checked+.slider {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.top_switch:hover .slider {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.switch:hover .slider {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .switch {
     position: relative;
     width: 44px;
@@ -435,6 +510,7 @@ h2 {
     right: 0;
     bottom: 0;
     transition: .4s;
+    background-color: #ccc;
 }
 
 .slider:before {
@@ -445,6 +521,7 @@ h2 {
     left: 4px;
     bottom: 4px;
     transition: .4s;
+    background-color: white;
 }
 
 input:checked+.slider:before {
@@ -467,9 +544,18 @@ input:checked+.slider:before {
     border-radius: 5px;
     font-size: 12px;
     transition: background-color 0.2s ease-out;
+    transition: border-color 0.2s ease-out;
     color: #fff;
     cursor: pointer;
+    background-color: $accentColor;
+    border: 1px solid $accentColor;
 }
+
+.small_red_button:hover {
+    background-color: $secondaryAccentColor;
+    border: 1px solid $secondaryAccentColor;
+}
+
 
 /* CSS GRID LAYOUT CHILD */
 .module_wrapper {
@@ -478,7 +564,7 @@ input:checked+.slider:before {
 
 .module_name {
     position: relative;
-    clear:both;
+    clear: both;
     font-weight: 300;
     font-size: 14pt;
     text-shadow: 0px 0px 2px #888;
@@ -494,7 +580,7 @@ input:checked+.slider:before {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    clear:both;
+    clear: both;
 }
 
 .module_group:not(:first-of-type) {
@@ -510,7 +596,7 @@ input:checked+.slider:before {
     border-style: solid;
     border-width: 0px 0px 1px 0px;
     clear: both;
-    border-color: $color3;
+    border-color: $accentColor
 }
 
 p {
@@ -519,17 +605,17 @@ p {
 }
 
 .main {
-    background: linear-gradient(45deg , $mainColor, $secondaryColor) !important;
+    background: linear-gradient(45deg, $mainColor, $secondaryColor) !important;
     color: #fff;
 }
 
 .clear {
-    background: linear-gradient(45deg , inherit, inherit) !important;
+    background: linear-gradient(45deg, inherit, inherit) !important;
     color: inherit;
 }
 
 .yellow {
-    background: linear-gradient(45deg , $yellow1, $yellow2) !important;
+    background: linear-gradient(45deg, $yellow1, $yellow2) !important;
     color: #fff;
 }
 
@@ -539,134 +625,23 @@ p {
 }
 
 .blue {
-    background: linear-gradient(45deg , $blue1, $blue2) !important;
+    background: linear-gradient(45deg, $blue1, $blue2) !important;
+    color: #fff;
+}
+
+.red {
+    background: linear-gradient(45deg, $red1, $red2) !important;
     color: #fff;
 }
 
 .lightblue {
-    background: linear-gradient(45deg , #0288d1, #26c6da) !important;
+    background: linear-gradient(45deg, #0288d1, #26c6da) !important;
     color: #fff;
 }
 
-#sidebarMenu {
-    background-color: #fff;
-    text-shadow: 0 0 rgb(77, 77, 77);
-}
-
-#logo {
-    background-color: $mainColor;
-    color: #fff;
-}
-
-#sidebarMenu li:hover {
-    background-color: rgb(230, 230, 230);
-}
-
-#header {
-    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
-    box-shadow: 0 6px 20px 0 rgba(45, 0, 160, .5) !important;
-    color: #fff;
-}
-
-.box {
-    background-color: #fff;
-    box-shadow: 0px 0px 2px #111;
-}
-
-#content {
-    background-color: rgb(245, 245, 245);
-}
-
-.active {
-    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
-    color: #fff;
-}
-
-.notifications_list li:hover {
-    background-color: rgb(245, 245, 245);
-}
-
-#clear_notifications {
-    background-color: $color3;
-}
-
-#clear_notifications:hover {
-    background-color: rgb(173, 16, 47);
-}
-
-.notifications_title {
-    color: #fff;
-    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
-}
-
-#notifications_counter {
-    background-color: $color3;
-}
-
-input:checked+.slider {
-    background-color: $color3;
-}
-
-.top_switch .slider {
-    background-color: $shadow;
-}
-.top_switch input:checked+.slider {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-.top_switch:hover .slider {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.switch:hover .slider {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.small_red_button {
-    background-color: $color3;
-    border: 1px solid rgb(173, 16, 47);
-}
-
-.small_red_button:hover {
-    background-color: rgb(173, 16, 47);
-}
-
-code {
-    background-color: rgb(220, 220, 220);
-}
-.slider {
-    background-color: #ccc;
-}
-
-.slider:before {
-    background-color: white;
-}
-
-#notifications {
-    background-color: #fff;
-    border: solid 1px rgb(210, 210, 210);
-    box-shadow: 0 1px 8px $shadow;
-}
-
-#clear_notifications {
-    border: 1px solid #color5;
-}
-
-.notifications_title {
-    border-bottom: 1px solid rgb(210, 210, 210);
-}
-
-.deg {
-    color: $color3;
-}
-
-a:link,
-a:visited {
-    color: $mainColor;
-}
-
-a:hover {
-    color: $color3;
-}
+// ##########################################################################
+// ############################## media queries #############################
+// ##########################################################################
 
 @media screen and (max-width: 600px) {
     #wrapper {
@@ -684,7 +659,7 @@ a:hover {
     #mobile_logo {
         visibility: visible;
     }
-    
+
     #showSidebarButton {
         display: inline-block;
     }

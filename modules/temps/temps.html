@@ -14,11 +14,12 @@
 
 <!-- module specific scripts -->
 <script type="text/javascript">
-temperatureReading("cputemp", 57);
-temperatureReading("gputemp", 78);
-function temperatureReading(id, temp) {
-    document.getElementById(id).innerHTML = temp + "<span class='deg'>&deg;</span>C";
-}
+    temperatureReading("cputemp", 57);
+    temperatureReading("gputemp", 78);
+
+    function temperatureReading(id, temp) {
+        document.getElementById(id).innerHTML = temp + "<span class='deg'>&deg;</span>C";
+    }
 </script>
 
 <!--

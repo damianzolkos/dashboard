@@ -6,6 +6,15 @@ body {
   max-width: 100%;
 }
 
+a:link,
+a:visited {
+  color: #2d00a0;
+}
+
+a:hover {
+  color: #ff4081;
+}
+
 #showSidebarButton {
   display: none;
   position: relative;
@@ -40,7 +49,7 @@ body {
   min-width: 250px;
   height: 100%;
   transition: transform 0.3s;
-  background-color: white;
+  background-color: #fff;
   color: #2b2b2b;
 }
 
@@ -52,6 +61,7 @@ body {
   left: 250px;
   z-index: -1000;
   transition: left 0.3s;
+  background-color: whitesmoke;
 }
 
 #mobile_logo {
@@ -125,7 +135,7 @@ button:active {
   color: #bebebe;
   padding: 20px;
   width: calc(100% - 40px);
-  box-shadow: 0 6px 30px 0 rgba(45, 0, 160, 0.5) !important;
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 #footer a:link,
@@ -209,7 +219,9 @@ h2 {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  background-color: #2d00a0;
+  color: #fff;
 }
 
 #sidebarMenu {
@@ -220,7 +232,9 @@ h2 {
   height: calc(100% - 65px);
   border-radius: 3px;
   transition: color 0.3s ease;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  text-shadow: 0 0 #4d4d4d;
 }
 
 #sidebarMenu:hover {
@@ -262,6 +276,15 @@ h2 {
   transition: background-color 0.2s ease-out;
 }
 
+#sidebarMenu li:hover {
+  background-color: #e6e6e6;
+}
+
+.active {
+  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  color: #fff;
+}
+
 #header {
   position: sticky;
   min-width: calc(100% - 250px);
@@ -271,6 +294,9 @@ h2 {
   padding-right: 0px;
   padding-left: 30px;
   height: 65px;
+  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3) !important;
+  color: #fff;
 }
 
 .header_button {
@@ -307,6 +333,12 @@ h2 {
   padding: 0px;
   border-radius: 1px;
   display: inline-block;
+  background-color: #fff;
+  box-shadow: 0px 0px 2px #111;
+}
+
+.deg {
+  color: #ff4081;
 }
 
 #notifications {
@@ -319,12 +351,18 @@ h2 {
   position: fixed;
   border-radius: 5px;
   width: 300px;
+  background-color: #fff;
+  border: solid 1px #d2d2d2;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .notifications_title {
   padding: 15px 20px 15px 20px;
   margin: 0px;
   border-radius: 5px;
+  color: #fff;
+  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  border-bottom: 1px solid #d2d2d2;
 }
 
 #clear_notifications {
@@ -338,6 +376,12 @@ h2 {
   transition: background-color 0.2s ease-out;
   color: #fff;
   cursor: pointer;
+  background-color: #ff4081;
+  border: 1px solid #db2247;
+}
+
+#clear_notifications:hover {
+  background-color: #db2247;
 }
 
 #notifications_counter {
@@ -353,7 +397,8 @@ h2 {
   width: 18px;
   height: 18px;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px rgba(255, 58, 58, 0.9);
+  box-shadow: 1px 1px 10px #ff4081;
+  background-color: #ff4081;
 }
 
 #notifications_list {
@@ -370,6 +415,10 @@ h2 {
   padding: 10px 15px 10px 15px;
   transition: background-color 0.2s ease-out;
   border-radius: 5px;
+}
+
+.notifications_list li:hover {
+  background-color: whitesmoke;
 }
 
 #notifications_list::-webkit-scrollbar,
@@ -398,6 +447,30 @@ h2 {
   color: rgba(0, 0, 0, 0.3);
 }
 
+code {
+  background-color: gainsboro;
+}
+
+input:checked + .slider {
+  background-color: #ff4081;
+}
+
+.top_switch .slider {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top_switch input:checked + .slider {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.top_switch:hover .slider {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.switch:hover .slider {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .switch {
   position: relative;
   width: 44px;
@@ -420,6 +493,7 @@ h2 {
   right: 0;
   bottom: 0;
   transition: 0.4s;
+  background-color: #ccc;
 }
 
 .slider:before {
@@ -430,6 +504,7 @@ h2 {
   left: 4px;
   bottom: 4px;
   transition: 0.4s;
+  background-color: white;
 }
 
 input:checked + .slider:before {
@@ -452,8 +527,16 @@ input:checked + .slider:before {
   border-radius: 5px;
   font-size: 12px;
   transition: background-color 0.2s ease-out;
+  transition: border-color 0.2s ease-out;
   color: #fff;
   cursor: pointer;
+  background-color: #ff4081;
+  border: 1px solid #ff4081;
+}
+
+.small_red_button:hover {
+  background-color: #db2247;
+  border: 1px solid #db2247;
 }
 
 /* CSS GRID LAYOUT CHILD */
@@ -528,132 +611,14 @@ p {
   color: #fff;
 }
 
+.red {
+  background: linear-gradient(45deg, #ad102f, rgba(255, 58, 58, 0.9)) !important;
+  color: #fff;
+}
+
 .lightblue {
   background: linear-gradient(45deg, #0288d1, #26c6da) !important;
   color: #fff;
-}
-
-#sidebarMenu {
-  background-color: #fff;
-  text-shadow: 0 0 #4d4d4d;
-}
-
-#logo {
-  background-color: #2d00a0;
-  color: #fff;
-}
-
-#sidebarMenu li:hover {
-  background-color: #e6e6e6;
-}
-
-#header {
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
-  box-shadow: 0 6px 20px 0 rgba(45, 0, 160, 0.5) !important;
-  color: #fff;
-}
-
-.box {
-  background-color: #fff;
-  box-shadow: 0px 0px 2px #111;
-}
-
-#content {
-  background-color: whitesmoke;
-}
-
-.active {
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
-  color: #fff;
-}
-
-.notifications_list li:hover {
-  background-color: whitesmoke;
-}
-
-#clear_notifications {
-  background-color: #ff4081;
-}
-
-#clear_notifications:hover {
-  background-color: #ad102f;
-}
-
-.notifications_title {
-  color: #fff;
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
-}
-
-#notifications_counter {
-  background-color: #ff4081;
-}
-
-input:checked + .slider {
-  background-color: #ff4081;
-}
-
-.top_switch .slider {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.top_switch input:checked + .slider {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.top_switch:hover .slider {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.switch:hover .slider {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.small_red_button {
-  background-color: #ff4081;
-  border: 1px solid #ad102f;
-}
-
-.small_red_button:hover {
-  background-color: #ad102f;
-}
-
-code {
-  background-color: gainsboro;
-}
-
-.slider {
-  background-color: #ccc;
-}
-
-.slider:before {
-  background-color: white;
-}
-
-#notifications {
-  background-color: #fff;
-  border: solid 1px #d2d2d2;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-}
-
-#clear_notifications {
-  border: 1px solid #color5;
-}
-
-.notifications_title {
-  border-bottom: 1px solid #d2d2d2;
-}
-
-.deg {
-  color: #ff4081;
-}
-
-a:link,
-a:visited {
-  color: #2d00a0;
-}
-
-a:hover {
-  color: #ff4081;
 }
 
 @media screen and (max-width: 600px) {

@@ -15,9 +15,6 @@
 <!-- module scecific styles -->
 
 <style rel="stylesheet">
-  #chart_module {
-    /* background: linear-gradient(45deg, #ff5252, #fc4e88) !important; */
-  }
 
   #module_name_chart {
     background: linear-gradient(45deg, #ff5252, #fc4e88) !important;
@@ -37,6 +34,16 @@
   }
   
 </style>
+
+
+<div class="module_wrapper" id="chart_module">
+  <p class="module_name red">A very basic chart</p>
+  <div class="module_content">
+    <br>
+    <canvas id="myChart" width="10" height="10"></canvas>
+  </div>
+</div>
+</div>
 
 <!-- module specific scripts -->
 <script>
@@ -104,12 +111,3 @@
   }
   renderChart();
 </script>
-
-<div class="module_wrapper" id="chart_module">
-  <p id="module_name_chart">A very simple chart</p>
-  <div class="module_content">
-    <br>
-    <canvas id="myChart" width="10" height="10"></canvas>
-  </div>
-</div>
-</div>
