@@ -213,7 +213,7 @@ function showSidebar() {
     if (showOrHide == 0) {
         sidebar.style.transform = 'translate(0px,0px)';
         content.style.left = "250px";
-        content.style.width = 'calc(100% - 250px)';
+        // content.style.width = 'calc(100% - 250px)';
         showOrHide = 1;
         document.getElementById("mobile_logo").style.display = "none";
     } else if (showOrHide == 1) {
