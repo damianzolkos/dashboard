@@ -6,8 +6,8 @@ body {
   max-width: 100%;
 }
 
-div#showSidebarButton {
-  display: inline-block;
+#showSidebarButton {
+  display: none;
   position: relative;
   line-height: 65px;
   margin-right: 30px;
@@ -671,6 +671,10 @@ a:hover {
 
   #mobile_logo {
     visibility: visible;
+  }
+
+  #showSidebarButton {
+    display: inline-block;
   }
 
   #sidebar {

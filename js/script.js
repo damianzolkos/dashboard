@@ -39,10 +39,11 @@ async function onLoad() {
     document.getElementById("author").innerHTML = config.appAuthor;
     document.getElementById("authorLink").href = config.appAuthorLink;
 
-    mq = window.matchMedia("(max-width: 500px)");
     if (mq.matches == true) {
         showOrHide = 1;
-    } else showOrHide = 0;
+    } else {
+        showOrHide = 0;
+    }
 
     clock();
     notificationsCounterUpdate();
@@ -124,7 +125,7 @@ function changeScreen(nameOfScreen) {
     } else {
 
     }
-    
+
 }
 
 function createPages(nameOfPage) {
@@ -213,7 +214,11 @@ function showSidebar() {
     if (showOrHide == 0) {
         sidebar.style.transform = 'translate(0px,0px)';
         content.style.left = "250px";
-        // content.style.width = 'calc(100% - 250px)';
+
+        if (mq.matches == false) {
+            content.style.width = 'calc(100% - 250px)';
+        }
+
         showOrHide = 1;
         document.getElementById("mobile_logo").style.display = "none";
     } else if (showOrHide == 1) {
