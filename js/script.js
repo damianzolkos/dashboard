@@ -1,20 +1,8 @@
 const configAddress = "config.json";
-//const configAddres = "http://localhost:1880/config";
 
 let notifications = 0;
 let messages = [];
 let config;
-
-// avaiable letiables:
-//
-// appName, pages, config, notifications, messages, serverAddress
-//
-// date and time:
-//      hour: h
-//      minute: m
-//      year: y
-//      month: mo
-//      day: da
 
 async function getData(url) {
     const data = await fetch(url)
@@ -34,12 +22,14 @@ async function getData(url) {
     return data;
 }
 
+var mq = window.matchMedia("(max-width: 500px)");
+
 async function onLoad() {
     config = await getData(configAddress);
 
     console.log("");
     console.log("%c ###############################", "font-weight: bold;");
-    console.log("           " + config.appName);
+    console.log("            " + config.appName);
     console.log("%c ###############################", "font-weight: bold;");
     console.log("");
 
@@ -49,18 +39,24 @@ async function onLoad() {
     document.getElementById("author").innerHTML = config.appAuthor;
     document.getElementById("authorLink").href = config.appAuthorLink;
 
+    mq = window.matchMedia("(max-width: 500px)");
+    if (mq.matches == true) {
+        showOrHide = 1;
+    } else showOrHide = 0;
+
     clock();
     notificationsCounterUpdate();
     alarm(config.appName, "Simple and responsive web app interface with modules support.", "img/favicon.png");
 
-    for (let i = 0; i < config.pages.length; i++) {
-        createSidebarMenuItem(config.pages[i]);
-        createPages(config.pages[i]);
-    }
+    config.pages.forEach((item) => {
+        createSidebarMenuItem(item);
+        createPages(item);
+    });
     changeScreen(config.pages[0]);
 
-    for (let i = 0; i < config.activeModules.length; i++) {
-        let module_name = config["activeModules"][i][0];
+
+    config.activeModules.forEach((item) => {
+        let module_name = item[0];
         let module_page;
 
         $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
@@ -69,7 +65,7 @@ async function onLoad() {
             if (module.visibility == "none") {
                 module_page = config.pages[0];
             } else {
-                if (config["activeModules"][i][1] == undefined) {
+                if (item[1] == undefined) {
                     module_page = module.defaultPage;
                     if (config.pages.includes(module.defaultPage) == false) {
                         config.pages.push(module.defaultPage);
@@ -77,14 +73,14 @@ async function onLoad() {
                         createPages(module.defaultPage);
                         changeScreen(config.pages[0]);
                     }
-                } else module_page = config["activeModules"][i][1];
+                } else module_page = item[1];
             }
 
-            if (createBox(module_page, module.id, module.name, module.visibility)) {
+            if (createBox(module_page, module.id + Math.floor(Math.random() * 1000000000), module.name, module.visibility)) {
                 console.log("loaded: " + module_name);
             }
         });
-    }
+    });
     console.log("");
 }
 
@@ -111,12 +107,20 @@ function hideAlert() {
 }
 
 function changeScreen(nameOfScreen) {
-    for (let i = 0; i < config.pages.length; i++) {
-        document.getElementById(config.pages[i] + "_menuItem").className = "inactive";
-        document.getElementById(config.pages[i]).style.display = "none";
-    }
+    config.pages.forEach((item) => {
+        document.getElementById(item + "_menuItem").className = "inactive";
+        document.getElementById(item).style.display = "none";
+    });
     document.getElementById(nameOfScreen + "_menuItem").className = "active";
     document.getElementById(nameOfScreen).style.display = "";
+
+    mq = window.matchMedia("(max-width: 500px)");
+    if (mq.matches == true) {
+        showSidebar();
+    } else {
+        
+    }
+    
 }
 
 function createPages(nameOfPage) {
@@ -198,11 +202,6 @@ function clearNotifications() {
     notificationsCounterUpdate();
     notificationsWindowToggle();
 }
-
-const mq = window.matchMedia("(max-width: 500px)");
-if (mq.matches == true) {
-    showOrHide = 0;
-} else showOrHide = 1;
 
 function showSidebar() {
     let sidebar = document.getElementById('sidebar');

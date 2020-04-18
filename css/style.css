@@ -40,6 +40,8 @@ div#showSidebarButton {
   min-width: 250px;
   height: 100%;
   transition: transform 0.3s;
+  background-color: white;
+  color: #2b2b2b;
 }
 
 #content {
@@ -80,6 +82,42 @@ div#showSidebarButton {
   transition: background-color 0.4s;
 }
 
+.button {
+  background-color: #2d00a0;
+  border: solid 1px #2d00a0;
+}
+
+.button:hover {
+  background: #7800c8;
+  border: solid 1px #2d00a0;
+  color: #fff;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:active {
+  color: #fff;
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px 0px;
+}
+
+.on {
+  background: #2d00a0;
+  color: #fff;
+}
+
+.off {
+  background-color: #fff;
+  color: #111;
+  border: solid 1px #2d00a0;
+}
+
+.disabled {
+  background-color: gray;
+}
+
 #footer {
   background-image: linear-gradient(to right, #2d00a0, #7800c8);
   position: absolute;
@@ -91,7 +129,7 @@ div#showSidebarButton {
 }
 
 #footer a:link,
-a:visited {
+#footer a:visited {
   text-decoration: none;
   color: #fff;
 }
@@ -158,52 +196,6 @@ h2 {
   overflow: hidden;
 }
 
-@media screen and (max-width: 600px) {
-  #wrapper {
-    margin: 20px 10px 80px;
-  }
-
-  #header {
-    background-image: linear-gradient(to right, #2d00a0, #7800c8);
-  }
-
-  #mobile_logo {
-    visibility: visible;
-  }
-
-  #sidebar {
-    position: fixed;
-    visibility: visible;
-    float: left;
-    transform: translateX(-250px);
-    min-height: 100%;
-    min-width: 250px;
-    height: 100%;
-    transition: transform 0.3s;
-  }
-
-  #content {
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-    float: left;
-    left: 0px;
-    z-index: -1000;
-    transition: left 0.3s;
-  }
-
-  .button {
-    display: block;
-    width: 100%;
-    margin: 5px 0px 15px 0px;
-    height: 60px;
-  }
-
-  #popup {
-    width: 80%;
-    height: auto;
-  }
-}
 #logo {
   position: relative;
   font-weight: 400;
@@ -402,20 +394,6 @@ h2 {
   color: rgba(0, 0, 0, 0.3);
 }
 
-button:focus {
-  outline: 0;
-}
-
-button:hover {
-  color: #fff;
-}
-
-button:active {
-  color: #fff;
-  transform: translateY(3px);
-  box-shadow: 0px 0px 0px 0px;
-}
-
 .switch {
   position: relative;
   width: 44px;
@@ -513,11 +491,22 @@ input:checked + .slider:before {
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   clear: both;
+  border-color: #ff4081;
 }
 
 p {
   margin: 0;
   padding: 0;
+}
+
+.main {
+  background: linear-gradient(45deg, #2d00a0, #7800c8) !important;
+  color: #fff;
+}
+
+.clear {
+  background: linear-gradient(45deg, inherit, inherit) !important;
+  color: inherit;
 }
 
 .yellow {
@@ -535,9 +524,9 @@ p {
   color: #fff;
 }
 
-#sidebar {
-  background-color: white;
-  color: #2b2b2b;
+.lightblue {
+  background: linear-gradient(45deg, #0288d1, #26c6da) !important;
+  color: #fff;
 }
 
 #sidebarMenu {
@@ -628,40 +617,12 @@ code {
   background-color: gainsboro;
 }
 
-.button {
-  border-color: #999;
-  background-color: #fff;
-  box-shadow: 0px 3px #2d00a0;
-  border: solid 1px #2d00a0;
-}
-
-.on {
-  background: rgba(0, 50, 210, 0.7);
-  color: #fff;
-  box-shadow: 0px 3px #ff4081;
-  border: solid 1px #333;
-}
-
-.off {
-  background-color: #fff;
-}
-
-.button:hover {
-  background: rgba(0, 50, 210, 0.5);
-  border: solid 1px #2d00a0;
-  color: #111;
-}
-
 .slider {
   background-color: #ccc;
 }
 
 .slider:before {
   background-color: white;
-}
-
-.module_description {
-  border-color: #ff4081;
 }
 
 #notifications {
@@ -689,6 +650,57 @@ a:visited {
 
 a:hover {
   color: #ff4081;
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper {
+    margin: 20px 10px 80px;
+  }
+
+  #header {
+    background-image: linear-gradient(to right, #2d00a0, #2d00a0);
+  }
+
+  #footer {
+    background-image: linear-gradient(to right, #2d00a0, #2d00a0);
+  }
+
+  #mobile_logo {
+    visibility: visible;
+  }
+
+  #sidebar {
+    position: fixed;
+    visibility: visible;
+    float: left;
+    transform: translateX(-250px);
+    min-height: 100%;
+    min-width: 250px;
+    height: 100%;
+    transition: transform 0.3s;
+  }
+
+  #content {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    float: left;
+    left: 0px;
+    z-index: -1000;
+    transition: left 0.3s;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+    margin: 5px 0px 15px 0px;
+    height: 60px;
+  }
+
+  #popup {
+    width: 80%;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
