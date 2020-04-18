@@ -175,6 +175,10 @@ button:active {
   color: #ff4081;
 }
 
+.center {
+  text-align: center;
+}
+
 h2 {
   font-weight: 300;
   font-size: 12pt;

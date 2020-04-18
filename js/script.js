@@ -46,7 +46,11 @@ async function onLoad() {
 
     clock();
     notificationsCounterUpdate();
+
+    // show
     alarm(config.appName, "Simple and responsive web app interface with modules support.", "img/favicon.png");
+    newNotification("Test notification #1");
+    newNotification("Test notification #2");
 
     config.pages.forEach((item) => {
         createSidebarMenuItem(item);
@@ -118,7 +122,7 @@ function changeScreen(nameOfScreen) {
     if (mq.matches == true) {
         showSidebar();
     } else {
-        
+
     }
     
 }

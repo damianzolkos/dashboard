@@ -190,6 +190,10 @@ button:active {
     color: $color3;
 }
 
+.center {
+    text-align: center;
+}
+
 h2 {
     font-weight: 300;
     font-size: 12pt;
@@ -672,7 +676,7 @@ a:hover {
     #header {
         background-image: linear-gradient(to right, $mainColor, $mainColor);
     }
-    
+
     #footer {
         background-image: linear-gradient(to right, $mainColor, $mainColor);
     }
