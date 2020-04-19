@@ -1,17 +1,19 @@
-$mainColor: rgb(45, 0, 160);
-$secondaryColor: rgb(120, 0, 200);
+$mainColor: #2d00a0;
+$secondaryColor: #5d00c8;
 $accentColor: #ff4081;
-$secondaryAccentColor: rgb(219, 34, 71);
-$shadow: rgba(0, 0, 0, 0.3);
+$secondaryAccentColor: #db2247;
+$shadow: #00000030;
 
-$red1: rgb(173, 16, 47);
-$red2: rgba(255, 58, 58, 0.9);
+$red1: #ad102f;
+$red2: #ff3a3a;
 $yellow1: #f39c12;
 $yellow2: #f1c40f;
 $blue1 :#341f97;
 $blue2: #5f27cd;
 $green1: #27ae60;
 $green2: #2ecc71;
+$lightblue1: #0288d1;
+$lightblue2: #26c6da;
 
 html,
 body {
@@ -65,7 +67,7 @@ a:hover {
     height: 100%;
     transition: transform 0.3s;
     background-color: #fff;
-    color: rgb(43, 43, 43);
+    color: #2b2b2b;
 }
 
 #content {
@@ -76,7 +78,7 @@ a:hover {
     left: 250px;
     z-index: -1000;
     transition: left 0.3s;
-    background-color: rgb(245, 245, 245);
+    background-color: #f5f5f5;
 }
 
 #mobile_logo {
@@ -147,10 +149,9 @@ button:active {
     background-image: linear-gradient(to right, $mainColor, $secondaryColor);
     position: absolute;
     bottom: 0;
-    color: rgb(190, 190, 190);
+    color: #bebebe;
     padding: 20px;
     width: calc(100% - 40px);
-    // box-shadow: 0 6px 30px 0 rgba(45, 0, 160, .5) !important;
 
     box-shadow: 0 6px 30px 0 $shadow !important;
 }
@@ -167,7 +168,7 @@ button:active {
 }
 
 #shade {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #00000050;
     position: absolute;
     display: none;
     justify-content: center;
@@ -183,7 +184,7 @@ button:active {
     top: 20%;
     z-index: 100000;
     position: absolute;
-    width: 500px;
+    max-width: 550px;
     padding: 40px 20px 20px 20px;
 }
 
@@ -215,7 +216,7 @@ h2 {
     margin-top: -20px;
     float: right;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.4);
+    color: #00000050;
 }
 
 .disable:hover {
@@ -245,13 +246,13 @@ h2 {
     position: relative;
     font-size: 14px;
     overflow-y: auto;
-    color: rgba(0, 0, 0, 0.0);
+    color: #000;
     height: calc(100% - 65px);
     border-radius: 3px;
     transition: color .3s ease;
     box-shadow: 0 1px 15px $shadow;
     background-color: #fff;
-    text-shadow: 0 0 rgb(77, 77, 77);
+    text-shadow: 0 0 #4d4d4d;
 }
 
 #sidebarMenu:hover {
@@ -294,11 +295,11 @@ h2 {
 }
 
 #sidebarMenu li:hover {
-    background-color: rgb(230, 230, 230);
+    background-color: #e6e6e6;
 }
 
 .active {
-    background-image: linear-gradient(to right, $mainColor, $secondaryColor);
+    background-image: linear-gradient(to right, $secondaryColor, $secondaryColor);
     color: #fff;
 }
 
@@ -339,19 +340,32 @@ h2 {
 .page {
     position: relative;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 20px;
+
+    // CSS COLUMN VIEW (new)
+    line-height: inherit;
+    column-width: 400px;
+    column-gap: 20px;
+
+    // CSS GRID (legacy)
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    // grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    // grid-gap: 20px;
 }
 
 .box {
     position: relative;
     padding: 0px;
     border-radius: 1px;
-    display: inline-block;
+    display: block;
     background-color: #fff;
     box-shadow: 0px 0px 2px #111;
+    
+    // CSS COLUMN VIEW (new)
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100% !important;
+    height: auto !important;
 }
 
 .deg {
@@ -369,7 +383,7 @@ h2 {
     border-radius: 5px;
     width: 300px;
     background-color: #fff;
-    border: solid 1px rgb(210, 210, 210);
+    border: solid 1px #d2d2d2;
     box-shadow: 0 1px 8px $shadow;
 }
 
@@ -379,7 +393,7 @@ h2 {
     border-radius: 5px;
     color: #fff;
     background-image: linear-gradient(to right, $mainColor, $secondaryColor);
-    border-bottom: 1px solid rgb(210, 210, 210);
+    border-bottom: 1px solid #d2d2d2;
 }
 
 #clear_notifications {
@@ -435,7 +449,7 @@ h2 {
 }
 
 .notifications_list li:hover {
-    background-color: rgb(245, 245, 245);
+    background-color: #f5f5f5;
 }
 
 #notifications_list::-webkit-scrollbar,
@@ -465,7 +479,7 @@ h2 {
 }
 
 code {
-    background-color: rgb(220, 220, 220);
+    background-color: #dcdcdc;
 }
 
 input:checked+.slider {
@@ -635,7 +649,7 @@ p {
 }
 
 .lightblue {
-    background: linear-gradient(45deg, #0288d1, #26c6da) !important;
+    background: linear-gradient(45deg, $lightblue1, $lightblue2) !important;
     color: #fff;
 }
 
@@ -693,7 +707,7 @@ p {
     }
 
     #popup {
-        width: 80%;
+        max-width: 80%;
         height: auto;
     }
 }

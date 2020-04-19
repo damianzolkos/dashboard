@@ -61,7 +61,7 @@ a:hover {
   left: 250px;
   z-index: -1000;
   transition: left 0.3s;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
 
 #mobile_logo {
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .button:hover {
-  background: #7800c8;
+  background: #5d00c8;
   border: solid 1px #2d00a0;
   color: #fff;
 }
@@ -129,13 +129,13 @@ button:active {
 }
 
 #footer {
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  background-image: linear-gradient(to right, #2d00a0, #5d00c8);
   position: absolute;
   bottom: 0;
   color: #bebebe;
   padding: 20px;
   width: calc(100% - 40px);
-  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 6px 30px 0 #00000030 !important;
 }
 
 #footer a:link,
@@ -150,7 +150,7 @@ button:active {
 }
 
 #shade {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000050;
   position: absolute;
   display: none;
   justify-content: center;
@@ -166,7 +166,7 @@ button:active {
   top: 20%;
   z-index: 100000;
   position: absolute;
-  width: 500px;
+  max-width: 550px;
   padding: 40px 20px 20px 20px;
 }
 
@@ -198,7 +198,7 @@ h2 {
   margin-top: -20px;
   float: right;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
+  color: #00000050;
 }
 
 .disable:hover {
@@ -219,7 +219,7 @@ h2 {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 15px #00000030;
   background-color: #2d00a0;
   color: #fff;
 }
@@ -228,11 +228,11 @@ h2 {
   position: relative;
   font-size: 14px;
   overflow-y: auto;
-  color: rgba(0, 0, 0, 0);
+  color: #000;
   height: calc(100% - 65px);
   border-radius: 3px;
   transition: color 0.3s ease;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 15px #00000030;
   background-color: #fff;
   text-shadow: 0 0 #4d4d4d;
 }
@@ -281,7 +281,7 @@ h2 {
 }
 
 .active {
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  background-image: linear-gradient(to right, #5d00c8, #5d00c8);
   color: #fff;
 }
 
@@ -294,8 +294,8 @@ h2 {
   padding-right: 0px;
   padding-left: 30px;
   height: 65px;
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3) !important;
+  background-image: linear-gradient(to right, #2d00a0, #5d00c8);
+  box-shadow: 0 6px 20px 0 #00000030 !important;
   color: #fff;
 }
 
@@ -322,19 +322,22 @@ h2 {
 .page {
   position: relative;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 20px;
+  line-height: inherit;
+  column-width: 400px;
+  column-gap: 20px;
 }
 
 .box {
   position: relative;
   padding: 0px;
   border-radius: 1px;
-  display: inline-block;
+  display: block;
   background-color: #fff;
   box-shadow: 0px 0px 2px #111;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 100% !important;
+  height: auto !important;
 }
 
 .deg {
@@ -353,7 +356,7 @@ h2 {
   width: 300px;
   background-color: #fff;
   border: solid 1px #d2d2d2;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 8px #00000030;
 }
 
 .notifications_title {
@@ -361,7 +364,7 @@ h2 {
   margin: 0px;
   border-radius: 5px;
   color: #fff;
-  background-image: linear-gradient(to right, #2d00a0, #7800c8);
+  background-image: linear-gradient(to right, #2d00a0, #5d00c8);
   border-bottom: 1px solid #d2d2d2;
 }
 
@@ -418,7 +421,7 @@ h2 {
 }
 
 .notifications_list li:hover {
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
 
 #notifications_list::-webkit-scrollbar,
@@ -448,7 +451,7 @@ h2 {
 }
 
 code {
-  background-color: gainsboro;
+  background-color: #dcdcdc;
 }
 
 input:checked + .slider {
@@ -456,7 +459,7 @@ input:checked + .slider {
 }
 
 .top_switch .slider {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #00000030;
 }
 
 .top_switch input:checked + .slider {
@@ -587,7 +590,7 @@ p {
 }
 
 .main {
-  background: linear-gradient(45deg, #2d00a0, #7800c8) !important;
+  background: linear-gradient(45deg, #2d00a0, #5d00c8) !important;
   color: #fff;
 }
 
@@ -612,7 +615,7 @@ p {
 }
 
 .red {
-  background: linear-gradient(45deg, #ad102f, rgba(255, 58, 58, 0.9)) !important;
+  background: linear-gradient(45deg, #ad102f, #ff3a3a) !important;
   color: #fff;
 }
 
@@ -671,7 +674,7 @@ p {
   }
 
   #popup {
-    width: 80%;
+    max-width: 80%;
     height: auto;
   }
 }
