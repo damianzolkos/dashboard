@@ -324,15 +324,28 @@ h2 {
   width: 100%;
 }
 
-.normal {
+.column {
   line-height: inherit;
   column-width: 400px;
   column-gap: 20px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 20px;
+}
+
 .big {
   line-height: inherit;
   column-width: 100%;
+}
+
+.big .box,
+.column .box {
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .box {
@@ -342,8 +355,6 @@ h2 {
   display: block;
   background-color: #fff;
   box-shadow: 0px 0px 2px #111;
-  margin-top: 5px;
-  margin-bottom: 15px;
   width: 100% !important;
   height: auto !important;
 }

@@ -5,10 +5,13 @@
   "serverAddress": "http://192.168.1.11",
   "pages": [{
     "name": "Homepage",
-    "type": "normal"
+    "type": "column"
   }, {
     "name": "Example",
     "type": "big"
+  }, {
+    "name": "Grid page",
+    "type": "grid"
   }],
   "activeModules": [
     {
@@ -20,9 +23,13 @@
     },
     ["buttons", "Homepage"],
     ["chart", "Homepage"],
+    ["example", "Homepage"],
     ["smallinfo", "Homepage"],
     ["links", "Homepage"],
     ["temps", "Homepage"],
-    ["example", "Example"]
+    ["example", "Example"],
+    ["smallinfo", "Example"],
+    ["example", "Grid page"],
+    ["smallinfo", "Grid page"]
   ]
 }
