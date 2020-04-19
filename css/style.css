@@ -322,9 +322,17 @@ h2 {
 .page {
   position: relative;
   width: 100%;
+}
+
+.normal {
   line-height: inherit;
   column-width: 400px;
   column-gap: 20px;
+}
+
+.big {
+  line-height: inherit;
+  column-width: 100%;
 }
 
 .box {

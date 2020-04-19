@@ -54,37 +54,40 @@ async function onLoad() {
     newNotification("Test notification #2");
 
     config.pages.forEach((item) => {
-        createSidebarMenuItem(item);
+        createSidebarMenuItem(item.name);
         createPages(item);
     });
-    changeScreen(config.pages[0]);
+    changeScreen(config.pages[0].name);
 
 
     config.activeModules.forEach((item) => {
         let module_name = item[0];
         let module_page;
 
-        $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
-            let module = JSON.parse(JSON.stringify(json));
+        if (typeof item[1] == "string") {
 
-            if (module.visibility == "none") {
-                module_page = config.pages[0];
-            } else {
-                if (item[1] == undefined) {
-                    module_page = module.defaultPage;
-                    if (config.pages.includes(module.defaultPage) == false) {
-                        config.pages.push(module.defaultPage);
-                        createSidebarMenuItem(module.defaultPage);
-                        createPages(module.defaultPage);
-                        changeScreen(config.pages[0]);
-                    }
-                } else module_page = item[1];
-            }
-
-            if (createBox(module_page, module.id + Math.floor(Math.random() * 1000000000), module.name, module.visibility)) {
-                console.log("loaded: " + module_name);
-            }
-        });
+            $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
+                let module = JSON.parse(JSON.stringify(json));
+    
+                if (module.visibility == "none") {
+                    module_page = config.pages[0];
+                } else {
+                    if (item[1] == undefined) {
+                        module_page = module.defaultPage;
+                        if (config.pages.includes(module.defaultPage) == false) {
+                            config.pages.push(module.defaultPage);
+                            createSidebarMenuItem(module.defaultPage);
+                            createPages(module.defaultPage);
+                            changeScreen(config.pages[0]);
+                        }
+                    } else module_page = item[1];
+                }
+    
+                if (createBox(module_page, module.id + Math.floor(Math.random() * 1000000000), module.name, module.visibility)) {
+                    console.log("loaded: " + module_name);
+                }
+            });
+        } else console.log("new module config, not yet supported.");
     });
     console.log("");
 }
@@ -108,14 +111,14 @@ function getTime() {
     month[9] = "October";
     month[10] = "November";
     month[11] = "December";
-  
+
     var d = new Date();
     var month = month[d.getMonth()];
     var year = d.getFullYear();
     var day = d.getDate();
     var hour = d.getHours();
     var minutes = d.getMinutes();
-  
+
     if (minutes == 0) minutes = "00";
     else if (minutes == 1) minutes = "01";
     else if (minutes == 2) minutes = "02";
@@ -126,19 +129,18 @@ function getTime() {
     else if (minutes == 7) minutes = "07";
     else if (minutes == 8) minutes = "08";
     else if (minutes == 9) minutes = "09";
-  
+
     h = hour.toString();
     m = minutes.toString();
     mo = month;
     da = day.toString();
     y = year.toString();
-  }
+}
 
 function alarm(title, message, icon) {
     $('body').addClass('stop-scrolling');
     document.getElementById('shade').style.display = "flex";
     document.getElementById('popup').style.display = "block";
-
 
     document.getElementById('popup_icon').src = icon;
     document.getElementById('popup_title').innerHTML = title;
@@ -153,8 +155,8 @@ function hideAlert() {
 
 function changeScreen(nameOfScreen) {
     config.pages.forEach((item) => {
-        document.getElementById(item + "_menuItem").className = "inactive";
-        document.getElementById(item).style.display = "none";
+        document.getElementById(item.name + "_menuItem").className = "inactive";
+        document.getElementById(item.name).style.display = "none";
     });
     document.getElementById(nameOfScreen + "_menuItem").className = "active";
     document.getElementById(nameOfScreen).style.display = "";
@@ -162,16 +164,13 @@ function changeScreen(nameOfScreen) {
     mq = window.matchMedia("(max-width: 500px)");
     if (mq.matches == true) {
         showSidebar();
-    } else {
-
     }
-
 }
 
-function createPages(nameOfPage) {
+function createPages(page) {
     let newPage = document.createElement("div");
-    newPage.id = nameOfPage;
-    newPage.className = "page";
+    newPage.id = page.name;
+    newPage.className = "page "+page.type;
     document.getElementById("wrapper").appendChild(newPage);
 }
 
@@ -269,3 +268,7 @@ function showSidebar() {
         document.getElementById("mobile_logo").style.display = "inline-block";
     }
 }
+
+
+// $('body').removeClass('stop-scrolling');
+// $('body').addClass('stop-scrolling');

@@ -340,7 +340,8 @@ h2 {
 .page {
     position: relative;
     width: 100%;
-
+}
+.normal {
     // CSS COLUMN VIEW (new)
     line-height: inherit;
     column-width: 400px;
@@ -351,6 +352,11 @@ h2 {
     // grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     // grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
     // grid-gap: 20px;
+}
+.big {
+    // CSS COLUMN VIEW (new)
+    line-height: inherit;
+    column-width: 100%;
 }
 
 .box {
