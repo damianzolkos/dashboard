@@ -22,14 +22,19 @@
       }
     },
     ["buttons", "Homepage"],
+    ["http", "Homepage"],
     ["chart", "Homepage"],
     ["example", "Homepage"],
+    ["spotify", "Homepage"],
+    ["volume", "Homepage"],
+    ["whoshome", "Homepage"],
     ["smallinfo", "Homepage"],
     ["links", "Homepage"],
     ["temps", "Homepage"],
     ["example", "Example"],
     ["smallinfo", "Example"],
     ["example", "Grid page"],
-    ["smallinfo", "Grid page"]
+    ["smallinfo", "Grid page"],
+    ["modules", "Grid page"]
   ]
 }
