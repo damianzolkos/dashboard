@@ -63,10 +63,9 @@
 
 <!-- module specific scripts -->
 <script type="text/javascript">
-    var peopleURL = "/modules/whoshome/people.json";
-    // var peopleURL = config.serverAddress + "/people.json";
+    var peopleURL = "modules/whoshome/people.json";
     async function getWhoshome() {
-        people = await getData(peopleURL);
+        let people = await getData(peopleURL);
         if (people == "404") {} else {
             people.people.forEach(element => {
                 let ul = document.getElementById('whoshome_ul');

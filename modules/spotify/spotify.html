@@ -74,11 +74,9 @@
 
 <!-- module specific scripts -->
 <script type="text/javascript">
-    var spotify;
-    // var spotifyURL = config.serverAddress+"/spotify.json";
-    var spotifyURL = "/modules/spotify/nowplaying.json";
+    var spotifyURL = "modules/spotify/nowplaying.json";
     async function getSpotify() {
-        spotify = await getData(spotifyURL);
+        let spotify = await getData(spotifyURL);
         if (spotify === "err") {
             document.getElementById('spotifyArtist').innerHTML = "connection error...";
         } else {
