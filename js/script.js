@@ -43,7 +43,7 @@ async function onLoad() {
     document.getElementById("author").innerHTML = config.appAuthor;
     document.getElementById("authorLink").href = config.appAuthorLink;
 
-    if (mq.matches == true) {
+    if (mq.matches) {
         showOrHide = 1;
     } else {
         showOrHide = 0;
@@ -52,48 +52,41 @@ async function onLoad() {
     clock();
     notificationsCounterUpdate();
 
-    // show
-    alarm(config.appName, "Simple and responsive web app interface with modules support.", "img/appIcon.png");
-    newNotification("Test notification #1");
-    newNotification("Test notification #2");
-
     config.pages.forEach((item) => {
         createSidebarMenuItem(item.name);
         createPages(item);
     });
     changeScreen(config.pages[0].name);
 
-
     config.activeModules.forEach((item) => {
         let module_name = item[0];
         let module_page;
 
-        if (typeof item[1] == "string") {
+        $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
+            let module = JSON.parse(JSON.stringify(json));
 
-            $.getJSON("modules/" + module_name + "/" + module_name + ".json", function (json) {
-                let module = JSON.parse(JSON.stringify(json));
+            if (module.visibility === "none") {
+                module_page = config.pages[0];
+            } else {
+                if (item[1] == undefined) {
+                    module_page = module.defaultPage;
+                    if (config.pages.includes(module.defaultPage) == false) {
+                        config.pages.push(module.defaultPage);
+                        createSidebarMenuItem(module.defaultPage);
+                        createPages(module.defaultPage);
+                        changeScreen(config.pages[0]);
+                    }
+                } else module_page = item[1];
+            }
 
-                if (module.visibility == "none") {
-                    module_page = config.pages[0];
-                } else {
-                    if (item[1] == undefined) {
-                        module_page = module.defaultPage;
-                        if (config.pages.includes(module.defaultPage) == false) {
-                            config.pages.push(module.defaultPage);
-                            createSidebarMenuItem(module.defaultPage);
-                            createPages(module.defaultPage);
-                            changeScreen(config.pages[0]);
-                        }
-                    } else module_page = item[1];
-                }
-
-                if (createBox(module_page, module.id + Math.floor(Math.random() * 1000000000), module.name, module.visibility)) {
-                    console.log("loaded: " + module_name);
-                }
-            });
-        } else console.log("new module config, not yet supported.");
+            if (createBox(module_page, module.id + Math.floor(Math.random() * 1000000000), module.name, module.visibility)) {
+                console.log("loaded: " + module_name);
+            }
+        });
     });
     console.log("");
+
+    afterLoad();
 }
 
 function clock() {
@@ -115,7 +108,7 @@ function getTime() {
         minutes = "0" + minutes;
     }
     if (hour < 10) {
-        hour = "0" + hour; 
+        hour = "0" + hour;
     }
 
     h = hour.toString();
@@ -242,9 +235,7 @@ function showSidebar() {
         sidebar.style.transform = 'translate(0px,0px)';
         content.style.left = "250px";
 
-        if (mq.matches == false) {
-            content.style.width = 'calc(100% - 250px)';
-        }
+        if (!mq.matches) content.style.width = 'calc(100% - 250px)';
 
         showOrHide = 1;
         document.getElementById("mobile_logo").style.display = "none";

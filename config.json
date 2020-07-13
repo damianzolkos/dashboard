@@ -14,16 +14,11 @@
     "type": "grid"
   }],
   "activeModules": [
-    {
-      "name": "example",
-      "page": "Example",
-      "params": {
-        "color": "red"
-      }
-    },
     ["buttons", "Homepage"],
     ["http", "Homepage"],
+    ["whoshome", "Homepage"],
     ["chart", "Homepage"],
+    ["spotify", "Homepage"],
     ["example", "Homepage"],
     ["smallinfo", "Homepage"],
     ["links", "Homepage"],
