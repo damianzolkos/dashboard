@@ -623,6 +623,26 @@ p {
   color: #fff;
 }
 
+.vaporwave {
+  background: linear-gradient(45deg, #fb6396, #c269bc) !important;
+  color: #fff;
+}
+
+.mossy {
+  background: linear-gradient(45deg, #5dbb97, #94cf95) !important;
+  color: #fff;
+}
+
+.black {
+  background: linear-gradient(45deg, #1a2026, #1e252c) !important;
+  color: #fff;
+}
+
+.pink {
+  background: linear-gradient(45deg, #fb6396, #f692b2) !important;
+  color: #fff;
+}
+
 .green {
   background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
   color: #fff;
@@ -634,7 +654,7 @@ p {
 }
 
 .red {
-  background: linear-gradient(45deg, #ad102f, #ff3a3a) !important;
+  background: linear-gradient(45deg, #da2a4d, #ff3a3a) !important;
   color: #fff;
 }
 

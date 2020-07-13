@@ -8,5 +8,6 @@ var buttons = [
   ['Bedroom','Music','scenes','music'],
   ['Bedroom','Lights','scenes','lights'],
   ['Raspberry Pi','Restart Spotify','spotify','fix'],
-  ['Raspberry Pi','Reboot','system','reboot']
+  ['Raspberry Pi','Reboot','system','reboot'],
+  ['Raspberry Pi','Shut down','system','halt']
 ];
